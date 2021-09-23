@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Hi my name is Code. I'm excited about this project because...
+* Hi my name is Jay Wang..
 	
 ## Technologies
 Technologies used for this project:
