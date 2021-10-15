@@ -1,0 +1,32 @@
+.container {
+  width: 500px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  justify-items: center;
+}
+
+#setting {
+  grid-column-start: 3;
+}
+
+.profile.photo {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.profile.photo img {
+  border-radius: 50%;
+}
+
+.profile.name {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+
+.navbar {
+  text-justify: center;
+}
