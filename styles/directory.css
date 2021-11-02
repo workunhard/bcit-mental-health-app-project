@@ -1,16 +1,45 @@
-.container {
-  width: 500px;
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.grid {
+  display: grid;
+}
+
+header {
+  background-image: url(/images/bg.png);
 }
 
 .top {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 0.6fr;
   justify-items: center;
+  background: rgba(168, 168, 168, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+#hamburger {
+  padding-top: 10px;
+}
+
+.hamburgerMenu .menu {
+  display: none;
+}
+
+.change {
+  display: block;
 }
 
 #setting {
   grid-column-start: 3;
+  padding-top: 10px;
 }
 
 .profile.photo {
@@ -20,13 +49,46 @@
 
 .profile.photo img {
   border-radius: 50%;
+  border: rgb(255, 255, 255) solid 3px;
 }
 
 .profile.name {
   grid-column-start: 2;
   grid-row-start: 3;
+  color: white;
 }
 
-.navbar {
-  text-justify: center;
+.nav {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 0 15px;
+  height: 20px;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 0.7em;
+  padding: 0 10px;
+  transition: 0.2s;
+  margin: 0 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-bottom: 3px solid black;
+  transition: 0.2s;
+}
+
+.nav a:hover::before {
+  width: 100%;
 }
