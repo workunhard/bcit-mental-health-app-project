@@ -16,45 +16,80 @@ a, a:visited, a:hover, a:active{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
 }
 
-/* Base Container ==================================================*/
+/* ================================================== Base Container ==================================================*/
+/* 
+Row 1: Profile
+Row 2: NavBar ScrollWheel
+Row 3: Content 
+*/
 .Base-Container{
     display: grid;
-    grid-template-rows: repeat(4, auto);
-    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 100%;
 }
 
-.grid-container-navBar{
-    background-image: url("../images/ProfileWallpaper.jpg");
+/* Base Container ==================================================*/ 
+.grid-container-profile{
+    /* background-image: url("../images/ProfileWallpaper.jpg");
     background-position: center center;
     background-repeat:no-repeat;
-    background-size: cover;
+    background-size: cover; */
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr, 1fr;
     grid-row: 1 / span 1;
 
     
-    /* background-color: rgb(180, 180, 180); */
+    background-color: rgb(194, 64, 64);
 }
 
-.grid-container-navBar-div{
+/* Base Container ==================================================*/ 
+.grid-container-profile-Navigation{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-row: 1 / span 1;
+    grid-column: 1/ span 1;
+}
+
+.grid-item-profile-Hamburger{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    place-self: center;
+
+    font-size: 1.5vw;
+    padding: 10px;
+}
+
+.grid-item-profile-Gear{
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 1;
+    place-self: center;
+
+    font-size: 1.5vw;
+    padding: 10px;
+}
+
+/* Base Container ==================================================*/ 
+.grid-container-profile-div{
+    /* padding: 15vw; */
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
-    grid-row: 1 / span 1;
+    grid-row: 2 / span 1;
     backdrop-filter: blur(20px);
     background-color: rgba(255, 255, 255, 0.1);
 
     /* background-color: rgb(194, 64, 64); */
 }
 
-.grid-item-navbar-profilePicture{
+.grid-item-profile-profilePicture{
     grid-column: 1 / span 1;
     place-self: center;
     margin: 20px;
 }
 
-.grid-item-navbar-profileName{
+.grid-item-profile-profileName{
     grid-column: 2 /span 1;
     justify-self: start;
     align-self: center;
@@ -62,7 +97,7 @@ a, a:visited, a:hover, a:active{
     font-size: 2vw;
 }
 
-.grid-item-navbar-profilePicture{
+.grid-item-profile-profilePicture{
     border-radius: 50%;
     width: 10vw;
     height: auto;
@@ -81,7 +116,7 @@ a, a:visited, a:hover, a:active{
     padding-bottom: 10px;
     font-size: 1.5vw;
 
-    background-color:rgb(194, 194, 194);
+    /* background-color:rgb(194, 194, 194); */
 }
 
 #grid-item-navbar-scrollBar-Edit{
@@ -91,6 +126,7 @@ a, a:visited, a:hover, a:active{
     grid-column: 4 / span 1;
 }
 
+/* Grid Container ================================================== */
 .grid-container-profilecontent{
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -121,4 +157,60 @@ a, a:visited, a:hover, a:active{
 .grid-item-profilecontent-DOB-entry{
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
+}
+
+@media only screen and (max-width: 700px){
+    
+    .grid-item-profile-Hamburger{
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        place-self: center;
+    
+        font-size: 3vw;
+        padding: 10px;
+    }
+    
+    .grid-item-profile-Gear{
+        grid-column: 4 / span 1;
+        grid-row: 1 / span 1;
+        place-self: center;
+    
+        font-size: 3vw;
+        padding: 10px;
+    }
+
+    .grid-container-profile-div{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr .35fr;
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 1;
+        /* backdrop-filter: blur(20px);
+        background-color: rgba(255, 255, 255, 0.1); */
+    
+        background-color: rgb(194, 64, 64);
+    }
+
+    .grid-item-profile-profilePicture{
+        grid-row: 1/ span 1;
+        grid-column: 1/ span 1;
+        border-radius: 50%;
+        justify-self: center;
+        align-self: end;
+        width: 20vw;
+        height: auto;
+        overflow: none;
+        background-color: blue;
+    }
+
+    .grid-item-profile-profileName{
+        grid-row: 2 /span 1;
+        grid-column: 1 / span 1;
+        justify-self: center;
+        align-self: start;
+    
+        font-size: 4vw;
+        background-color: aqua;
+    }
+
 }
