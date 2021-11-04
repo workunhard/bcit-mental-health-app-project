@@ -84,9 +84,14 @@ Row 3: Content
     /* background-color: rgb(194, 64, 64); */
 }
 
+.grid-item-profile-a{
+    grid-row: 1/ span 1;
+    grid-column: 1/ span 1;
+    place-self: center;
+}
+
 .grid-item-profile-profilePicture{
     grid-column: 1 / span 1;
-    place-self: center;
     margin: 20px;
 }
 
@@ -98,8 +103,6 @@ Row 3: Content
     font-size: 2vw;
     color: white;
 }
-
-
 
 .grid-item-profile-profilePicture{
     border-radius: 50%;
@@ -196,8 +199,6 @@ Row 3: Content
     }
 
     .grid-item-profile-profilePicture{
-        grid-row: 1/ span 1;
-        grid-column: 1/ span 1;
         border-radius: 50%;
         place-self: center;
         width: 20vw;
@@ -211,7 +212,7 @@ Row 3: Content
         grid-column: 1 / span 1;
         justify-self: center;
         align-self: start;
-        margin-top: -10px;
+        margin-top: -5px;
     
         font-size: 4vw;
         /* background-color: aqua; */
