@@ -30,7 +30,7 @@ a, a:visited, a:hover, a:active{
     grid-row: 1 / span 1;
 
     
-    background-color: rgb(91, 72, 199);
+    background-color: rgb(180, 180, 180);
 }
 
 .grid-item-navbar-profilePicture{
