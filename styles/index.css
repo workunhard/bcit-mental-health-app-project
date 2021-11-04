@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+nav a, a:visited {
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: white;
+}
+
