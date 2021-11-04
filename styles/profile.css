@@ -38,9 +38,10 @@ Row 3: Content
     grid-template-columns: 1fr;
     grid-template-rows: 1fr, 1fr;
     grid-row: 1 / span 1;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
     
-    background-color: rgb(194, 64, 64);
+    background-color: rgb(185, 185, 185);
 }
 
 /* Base Container ==================================================*/ 
@@ -77,8 +78,8 @@ Row 3: Content
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     grid-row: 2 / span 1;
-    backdrop-filter: blur(20px);
-    background-color: rgba(255, 255, 255, 0.1);
+    /* backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.1); */
 
     /* background-color: rgb(194, 64, 64); */
 }
@@ -95,7 +96,10 @@ Row 3: Content
     align-self: center;
 
     font-size: 2vw;
+    color: white;
 }
+
+
 
 .grid-item-profile-profilePicture{
     border-radius: 50%;
@@ -129,7 +133,7 @@ Row 3: Content
 /* Grid Container ================================================== */
 .grid-container-profilecontent{
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 2;
     grid-row: 3 / span 1;
     align-self: center;
@@ -188,19 +192,18 @@ Row 3: Content
         /* backdrop-filter: blur(20px);
         background-color: rgba(255, 255, 255, 0.1); */
     
-        background-color: rgb(194, 64, 64);
+        background-color: rgb(185, 185, 185);
     }
 
     .grid-item-profile-profilePicture{
         grid-row: 1/ span 1;
         grid-column: 1/ span 1;
         border-radius: 50%;
-        justify-self: center;
-        align-self: end;
+        place-self: center;
         width: 20vw;
         height: auto;
         overflow: none;
-        background-color: blue;
+        /* background-color: blue; */
     }
 
     .grid-item-profile-profileName{
@@ -208,9 +211,20 @@ Row 3: Content
         grid-column: 1 / span 1;
         justify-self: center;
         align-self: start;
+        margin-top: -10px;
     
         font-size: 4vw;
-        background-color: aqua;
+        /* background-color: aqua; */
+    }
+
+    /* Grid Container ================================================== */
+    .grid-container-navBar-scrollBar{
+        font-size: 3vw;
+    }
+
+    /* Grid Container ================================================== */
+    .grid-container-profilecontent{
+        font-size: 3vw;
     }
 
 }
