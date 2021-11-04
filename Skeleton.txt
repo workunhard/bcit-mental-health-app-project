@@ -1,0 +1,29 @@
+1. Homepage/Landing/Nav Page with buttons to the following pages and subpages:
+
+2. User Profile Page
+    a) User Information
+    b) Progress Tracker
+    c) FAQ
+    
+3. Daily Survey Overlay:
+    Questions pages (min 3)
+    Recommendation page
+
+4. Service Directory Page (as one list and individual listings):
+    a) BCIT Counselling Office
+    b) Inkblot Therapy
+    c) FeelingBetterNow.com
+    d) Zen Lounge
+    e) Youth Mindfulness Program
+    f) Nutrition Coaching
+
+5. Settings Overlay:
+    a) "Account Info" page
+    b) "About" page
+    c) "Preferences" page
+        c1) Data Management
+        c2) Notification
+        c3) Permissions
+
+6. Emergency Non-BCIT Resources    
+
