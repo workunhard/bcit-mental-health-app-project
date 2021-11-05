@@ -4,6 +4,10 @@
   text-decoration: none;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 li {
   list-style: none;
 }
@@ -17,6 +21,7 @@ header {
 }
 
 .top {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: 1fr 2fr 0.6fr;
