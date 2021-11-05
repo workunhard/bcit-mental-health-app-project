@@ -134,7 +134,7 @@ Row 3: Content
 #grid-item-navbar-scrollBar-Edit{
 
     place-self: center;
-    color: rgb(91, 72, 199);
+    /* color: rgb(91, 72, 199); */
     grid-column: 4 / span 1;
 }
 
