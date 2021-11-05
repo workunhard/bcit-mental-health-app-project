@@ -1,3 +1,14 @@
+body {
+  background-image: url(../images/logbg1.jpeg);
+  height: 100%;
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  font-weight: bolder;
+}
+
 .container {
-  padding: 60px;
+  padding: 4em 0em;
 }

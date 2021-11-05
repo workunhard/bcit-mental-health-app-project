@@ -1,3 +1,14 @@
+Log-in flow:
+
+index.html >> login.html >> directory.html
+
+
+
+
+
+
+_________________
+
 1. Homepage/Landing/Nav Page with buttons to the following pages and subpages:
 
 2. User Profile Page
