@@ -6,6 +6,8 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles/profile.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
     </head>
 
     <body>
@@ -15,13 +17,37 @@
             <header class="grid-container-profile">
 
                 <div class="grid-container-profile-Navigation">
-                    <a href="" class="grid-item-profile-Hamburger">HAMBURGER</a>
-                    <a href="" class="grid-item-profile-Gear">GEAR</a>
+
+                    <div class="dropdown grid-item-profile-Hamburger">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="../1800_BBY26/images/hamburger.png" alt="">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="../1800_BBY26/directory.html">Home</a>
+                            <a class="dropdown-item" href="#">My Support</a>
+                            <a class="dropdown-item" href="#">My Progress</a>
+                            <a class="dropdown-item" href="#">Tips & Tricks</a>
+                            <a class="dropdown-item" href="#">Q&A</a>
+                        </div>
+                    </div>
+
+                    <div class="btn-group dropleft grid-item-profile-Gear">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="../1800_BBY26/images/setting.png" alt="">
+                        </button>
+                        <div class="dropdown-menu">
+                          <!-- Dropdown menu links -->
+                          <a class="dropdown-item" href="#">Account</a>
+                          <a class="dropdown-item" href="#">Privacy</a>
+                          <a class="dropdown-item" href="#">T.O.S</a>
+                        </div>
+                      </div>
+
                 </div>
 
                 <div class="grid-container-profile-div">
 
-                    <a href="" class="grid-item-profile-a">
+                    <a href="../1800_BBY26/profile.html" class="grid-item-profile-a">
                         <img src="images/girlProfile.jpg" alt="" class="grid-item-profile-profilePicture ProfilePicture-Styling">
                     </a>
 
@@ -36,7 +62,7 @@
             <div class="grid-container-navBar-scrollBar">
                 
                 <a href="" id="grid-item-navbar-scrollBar-Summary">Summary</a>
-                <a href="" id="grid-item-navbar-scrollBar-Daily Survey">Daily Survey</a>
+                <a href="../1800_BBY26/survey.html" id="grid-item-navbar-scrollBar-Daily Survey">Daily Survey</a>
                 <a href="" id="grid-item-navbar-scrollBar-Supports">Supports</a>
                 <a href="" id="grid-item-navbar-scrollBar-Edit">Edit</a>
 
@@ -63,6 +89,10 @@
             </div>
 
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     </body>
 
