@@ -60,7 +60,7 @@
         </nav>
         <div class="container-fluid top">
             <div class="profile photo">
-                <a href="#"><img src="images/profile.png" /></a>
+                <a href="profile1.html"><img src="images/profile.png" /></a>
             </div>
             <div class="profile name">
                 <p id="name-goes-here">&nbsp&nbsp&nbsp</p>
@@ -81,7 +81,7 @@
                     class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
-                        <h6 class="mb-0">List group item heading</h6>
+                        <h6 class="mb-0" id="BCIT01">&nbsp&nbsp&nbsp</h6>
                         <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
                     </div>
                 </div>
@@ -91,9 +91,8 @@
                     class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
-                        <h6 class="mb-0">Another title here</h6>
-                        <p class="mb-0 opacity-75">Some placeholder content in a paragraph that goes a little longer so
-                            it wraps to a new line.</p>
+                        <h6 class="mb-0" id="BCIT02">&nbsp&nbsp&nbsp</h6>
+                        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
                     </div>
                 </div>
             </a>
@@ -102,7 +101,7 @@
                     class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
-                        <h6 class="mb-0">Third heading</h6>
+                        <h6 class="mb-0" id="BCIT03">&nbsp&nbsp&nbsp</h6>
                         <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
                     </div>
                 </div>
@@ -142,6 +141,47 @@
             });
         }
         insertName();
+
+        function writeSupports() {
+            var supportsRef = db.collection("Supports");
+
+            supportsRef.add({
+                code: "BCIT01",
+                name: "a",
+                location: "a"
+            });
+            supportsRef.add({
+                code: "BCIT02",
+                name: "Buntzen Lake Trail Trail",
+                name: "b",
+                location: "b"
+            });
+            supportsRef.add({
+                code: "BCIT03",
+                name: "c",
+                location: "c"
+            });
+        }
+
+        // writeSupports();
+
+
+        function displaySupports() {
+            db.collection("Supports").get()
+                .then(allSupports => {
+                    allSupports.forEach(doc => {
+                        var supportName = doc.data().name; //gets the name field
+                        var supportID = doc.data().code; //gets the unique ID field
+                        document.getElementById(supportID).innerText = supportName;
+                    })
+
+                })
+        }
+        displaySupports();
+
+        function setSupportData(id) {
+            localStorage.setItem('supportID', id);
+        }
     </script>
 
 </body>
