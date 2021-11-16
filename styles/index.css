@@ -10,12 +10,14 @@ body {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
-     }
+    }
 }
 
-nav a, a:visited {
+nav a,
+a:visited {
     text-decoration: none;
 }
 
@@ -23,3 +25,33 @@ nav a:hover {
     color: white;
 }
 
+#banner {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#section1 {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#section2 {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#carouselExampleDark h2 {
+    line-height: 500px;
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}

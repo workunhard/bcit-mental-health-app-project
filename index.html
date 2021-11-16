@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Team 26's App</title>
+  <title>Wellness @ BCIT</title>
   <meta name="page" content="landing page">
   <meta name="author" content="Code Workun">
-
 
   <!-- External styles and scripts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
@@ -25,48 +24,81 @@
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
-        <h1>Team 26's App</h1>
+        <h1>Wellness @ BCIT</h1>
       </a>
       <a href="login.html"><button type="button" class="btn btn-outline-primary">Sign-in/Register</button></a>
     </div>
   </nav>
 
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
+  <div id="carouselExampleDark" class="active carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <h2>&nbsp</h2>
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="..." class="d-block w-100" alt="...">
+        <div class="carousel-caption d-md-block d-md-block">
+          <h2>Assess your wellness needs</h2>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="..." class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Explore support services available at BCIT</h2>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Connect with fellow students</h2>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="card-group">
+    <div class="card">
+      <img src="images/logbg1.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/logbg2.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/logbg3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
     </div>
   </div>
 
-  <div class="card" aria-hidden="true">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title placeholder-glow">
-        <span class="placeholder col-6"></span>
-      </h5>
-      <p class="card-text placeholder-glow">
-        <span class="placeholder col-7"></span>
-        <span class="placeholder col-4"></span>
-        <span class="placeholder col-4"></span>
-        <span class="placeholder col-6"></span>
-        <span class="placeholder col-8"></span>
-      </p>
-      <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-    </div>
-  </div>
-
-
-  <div>
-
-  </div>
-
-  <h2>Find the help you need <span id="boldHeadline">now</span></h2>
-
-
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 
 </body>
 
