@@ -1,5 +1,10 @@
 console.log("summary.js has been loaded.");
 
+// BootStrap Modal
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
+
 function insertName() {
         firebase.auth().onAuthStateChanged(user => {
             // Check if user is signed in:
@@ -23,10 +28,37 @@ function insertName() {
     }
 insertName();
 
-// BootStrap Modal
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})
+function populateInfo() {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    var userName = userDoc.data().name;
+                    var userSchool = userDoc.data().birthdate; // NOT IN FIRESTORE YET
+
+                    //if the data fields are not empty, then write them in to the form.
+                    if (userName != null) {
+                        document.getElementById("ProfileNameInput").value = userName;
+                    }
+                    if (userSchool != null) {
+                        document.getElementById("ProfileBirthdateInput").value = userSchool;
+                    }
+                })
+        } else {
+            // No user is signed in.
+            console.log ("No user is signed in");
+        }
+    });
+}
+
+//call the function to run it 
+populateInfo();
 
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {'packages':['corechart']});
