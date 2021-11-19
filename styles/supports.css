@@ -128,7 +128,7 @@ Row 4: Content
 .grid-container-navBar-scrollBar{
     display: grid;
     grid-template-columns: repeat(1, auto);
-    grid-template-rows: 1fr;
+    grid-template-rows: repeat(2, auto);
     grid-row: 3 / span 1;
     place-items: center;
 
@@ -139,11 +139,19 @@ Row 4: Content
      /* background-color:rgb(194, 194, 194);  */
 }
 
-#grid-item-navbar-scrollBar-Edit{
-    place-self: center;
-     color: rgb(91, 72, 199); 
+.bar1{
     grid-column: 1 / span 1;
-} 
+    grid-row: 1 / span 1;
+    justify-self: center;
+    margin: 5px;
+}
+
+
+/* #grid-item-navbar-scrollBar-Edit{
+    place-self: center;
+    color: rgb(91, 72, 199); 
+    grid-column: 1 / span 1;
+}  */
 
 
 /* =============================================== Content Container  =============================================== */

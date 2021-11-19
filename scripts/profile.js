@@ -5,60 +5,79 @@ $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
 })
 
-function insertName() {
-        firebase.auth().onAuthStateChanged(user => {
-            // Check if user is signed in:
-            if (user) {                                                                 
-                // Do something for the current logged-in user here: 
-                console.log(user.uid);
-                //go to the correct user document by referencing to the user uid
-                currentUser = db.collection("users").doc(user.uid);
-                //get the document for current user.
-                currentUser.get()
-			          .then(userDoc => {
-                   var user_Name = userDoc.data().name;
-                   console.log(user_Name);
 
-                   $(".grid-item-profile-profileName-Replace").text(user_Name);                         //using jquery
-                })
-            } else {
-                // No user is signed in.
-            }
-        });
-    }
-insertName();
 
-function populateInfo() {
+function insertDetails() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-
+            // Do something for the current logged-in user here: 
+            console.log(user.uid);
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentUser = db.collection("users").doc(user.uid);
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
-                    //get the data fields of the user
-                    var userName = userDoc.data().name;
-                    var userSchool = userDoc.data().birthdate; // NOT IN FIRESTORE YET
+                    var user_Name = userDoc.data().name;
+                    var DOB = userDoc.data().DOB;
+                    console.log(user_Name);
+                    console.log(DOB);
 
-                    //if the data fields are not empty, then write them in to the form.
-                    if (userName != null) {
-                        document.getElementById("ProfileNameInput").value = userName;
-                    }
-                    if (userSchool != null) {
-                        document.getElementById("ProfileBirthdateInput").value = userSchool;
-                    }
+                    //using jquery
+                    $(".grid-item-profile-profileName-Replace").text(user_Name);
+                    $(".grid-item-profilecontent-DOB-entry").text(DOB);
+
                 })
+
         } else {
             // No user is signed in.
-            console.log ("No user is signed in");
         }
     });
 }
+insertDetails();
 
-//call the function to run it 
-populateInfo();
+function setDetails() {
+
+    let setName = document.getElementById("ProfileNameInput").value;
+    let setBirthDate = document.getElementById("ProfileBirthdateInput").value;
+
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+
+            var currentUser = db.collection("users").doc(user.uid);
+            var userID = user.uid;
+
+            // currentUser.update()
+            //     .then(function() {
+            //         alert(user.uid);
+            //         alert("Hello! ALERT2");
+            //         currentUser.update({
+            //             name: setName,
+            //             DOB: setBirthDate
+            //         });
+            //     })
+
+            currentUser.get().then((userDoc) => {
+                var userEmail = userDoc.data().email;
+                if (setName == ""){
+                    setName = userDoc.data().name;
+                }
+                if (setBirthDate == ""){
+                    setBirthDate = userDoc.data().DOB;
+                }
+                db.collection("users").doc(user.uid).update({
+                    DOB: setBirthDate,
+                    email: userEmail,
+                    name: setName
+                });
+                insertDetails();
+            });
+
+        } else {
+            console.log("No user signed in")
+        }
+    });
+}
 
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {'packages':['corechart']});
