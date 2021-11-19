@@ -30,6 +30,10 @@ header {
   backdrop-filter: blur(10px);
 }
 
+.profile {
+  font-size: 20px;
+}
+
 #setting {
   grid-column-start: 3;
   padding-top: 10px;

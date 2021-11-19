@@ -3,6 +3,10 @@
 @media only screen and (max-width: 700px) {
 }
 
+a {
+  text-decoration: none !important;
+}
+
 body {
   margin: 0;
   padding: 2%;
@@ -53,8 +57,9 @@ body {
   margin: auto;
   position: relative;
   width: 25%;
-  top: 10%;
+  top: 1%;
   bottom: 30%;
+  height: 50px;
 }
 
 #nextButton {
@@ -63,12 +68,14 @@ body {
   border-radius: 20px;
   padding: 5%;
   bottom: 70%;
+  height: 50px;
 }
 
 #nextButton p {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
+  height: 50px;
 
   /* identical to box height */
   text-align: center;
