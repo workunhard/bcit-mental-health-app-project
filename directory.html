@@ -87,6 +87,37 @@
             </div>
         </section>
 
+        <template id="CardTemplate">
+            <div class="card py-2 mx-2" style="width: 18rem;">
+                <img class="card-image card-img-top" src="images/hikes.jpg" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                        of the
+                        card's content.</p>
+                    <a class="btn btn-primary card-href">Get Details</a>
+                </div>
+            </div>
+        </template>
+    
+        <div class="container">
+            <h1>Articles</h1>
+            <!-- Here is container for cards  -->
+            <div class="container">
+                <div id="articles-go-here" class="row row-cols-auto">
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <h1>Events</h1>
+            <!-- Here is container for cards  -->
+            <div class="container">
+                <div id="events-go-here" class="row row-cols-auto">
+                </div>
+            </div>
+        </div>
+
     </main>
 
 
@@ -121,6 +152,40 @@
             });
         }
         insertName();
+    </script>
+
+    <script>
+        function displayCards(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => { //iterate thru each doc
+                        var title = doc.data().name;
+                        var details = doc.data().details;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = details;
+                        newcard.querySelector('.card-image').src = "./images/" + collection +
+                            ".jpg"; //articlesTemp.jpg
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                    })
+                })
+        }
+
+        displayCards("articles");
+        // displayCards("events");
+
     </script>
 
 </body>
