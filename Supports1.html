@@ -67,7 +67,26 @@
         </nav>
     </header>
     <main>
-        <div class="list-group">
+        <div class="container">
+            <h1>Supports</h1>
+            <!-- Here is container for cards  -->
+            <div id="supports-go-here" class="row row-cols-auto list-group">
+                <template id="supportsLists">
+                    <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                        <img id="listImg" src="https://github.com/twbs.png" alt="twbs" width="32" height="32"
+                            class="rounded-circle flex-shrink-0">
+                        <div class="d-flex gap-2 w-100 justify-content-between">
+                            <div>
+                                <h6 class="mb-0" id="sup-name-goes-here">&nbsp&nbsp&nbsp</h6>
+                                <p class="mb-0" id="category">Some placeholder content in a paragraph.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+            </div>
+        </div>
+        <!-- <div class="list-group">
             <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                 <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32"
                     class="rounded-circle flex-shrink-0">
@@ -98,7 +117,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <footer class="navbar justify-content-evenly bg-light fixed-bottom">
             <div class="container py-3 grid">
                 <a href="directory.html" class="home grid">
@@ -150,46 +169,81 @@
         }
         insertName();
 
-        function writeSupports() {
-            var supportsRef = db.collection("Supports");
 
-            supportsRef.add({
-                code: "BCIT01",
-                name: "a",
-                location: "a"
-            });
-            supportsRef.add({
-                code: "BCIT02",
-                name: "Buntzen Lake Trail Trail",
-                name: "b",
-                location: "b"
-            });
-            supportsRef.add({
-                code: "BCIT03",
-                name: "c",
-                location: "c"
-            });
+
+        async function getCSVdata() {
+            const response = await fetch('./resources/BCIT-Support-Listings-Data.csv'); //send get request
+            const data = await response.text();      //get file response
+            const list = data.split('\n').slice(1);  //get line
+            list.forEach(row => {
+                const columns = row.split(','); //get token 
+                const category = columns[0];    //category
+                const fee = columns[1];        //need fee?               
+                const support = columns[2];     //support name
+                const location = columns[3];    //location
+                const phoneNumber = columns[5];
+                const fax = columns[6];
+                const hours = columns[7];
+                const email = columns[8];
+                const link = columns[9];
+                db.collection("supports").add({   //write to firestore
+                    name: support,
+                    category: category,
+                    fee: fee,
+                    location: location,
+                    phone: phoneNumber,
+                    fax: fax,
+                    hours: hours,
+                    email: email,
+                    link: link
+                })
+
+            })
         }
 
-        // writeSupports();
 
+        // function displaySupports() {
+        //     db.collection("Supports").get()
+        //         .then(allSupports => {
+        //             allSupports.forEach(doc => {
+        //                 var supportName = doc.data().name; //gets the name field
+        //                 var supportID = doc.data().code; //gets the unique ID field
+        //                 document.getElementById(supportID).innerText = supportName;
+        //             })
 
-        function displaySupports() {
-            db.collection("Supports").get()
-                .then(allSupports => {
-                    allSupports.forEach(doc => {
-                        var supportName = doc.data().name; //gets the name field
-                        var supportID = doc.data().code; //gets the unique ID field
-                        document.getElementById(supportID).innerText = supportName;
+        //         })
+        // }
+        // displaySupports();
+
+        function displayLists(collection) {
+            let supportsLists = document.getElementById("supportsLists");
+
+            db.collection(collection).get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var cate = doc.data().category;
+                        let newList = supportsLists.content.cloneNode(true);
+
+                        //update title and text and image
+                        newList.querySelector('#sup-name-goes-here').innerHTML = "Support Name: " + title;
+                        newList.querySelector('#category').innerHTML = "Category: " + cate;
+                        // newList.querySelector('#listImg').src = "./images/" + collection + ".jpg";  //hikes.jpg
+
+                        //give unique ids to all elements for future use
+                        newList.querySelector('#sup-name-goes-here').setAttribute("id", "ctitle" + i);
+                        newList.querySelector('#category').setAttribute("id", "ctext" + i);
+                        // newList.querySelector('#listImg').setAttribute("id", "cimage" + i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newList);
+                        i++;
                     })
-
                 })
         }
-        displaySupports();
 
-        function setSupportData(id) {
-            localStorage.setItem('supportID', id);
-        }
+        displayLists("supports");
     </script>
 
 </body>
