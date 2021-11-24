@@ -6,11 +6,8 @@
 }
 
 a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: #ffffff;
+  text-decoration: none !important;
+  color: black;
 }
 
 html {
@@ -22,42 +19,12 @@ li {
 }
 
 .grid {
-  display: grid;
-}
-
-header {
-  background-image: url(/images/bg.png);
-}
-
-.top {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 1fr 2fr 0.6fr;
-  justify-items: center;
-  background: rgba(168, 168, 168, 0.7);
-  backdrop-filter: blur(10px);
+  display: grid !important;
 }
 
 #setting {
   grid-column-start: 3;
   padding-top: 10px;
-}
-
-.profile.photo {
-  grid-column-start: 2;
-  grid-row-start: 2;
-}
-
-.profile.photo img {
-  border-radius: 50%;
-  border: rgb(255, 255, 255) solid 3px;
-}
-
-.profile.name {
-  grid-column-start: 2;
-  grid-row-start: 3;
-  color: white;
 }
 
 .nav {
@@ -84,8 +51,18 @@ header {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 8.075px;
+  width: 70px;
+  height: 100%;
+  border-bottom: 3px solid black;
+}
+
+#recommendation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22.425px;
+  width: 70px;
   height: 100%;
   border-bottom: 3px solid black;
 }
@@ -114,4 +91,35 @@ header {
   /* identical to box height */
   text-align: center;
   color: #ffffff;
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+footer {
+  height: 60px !important;
+  align-content: center;
+}
+
+footer .py-3 {
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+footer .grid p {
+  font-size: 10px;
+}
+
+footer .container .grid {
+  justify-items: center;
+  grid-template-rows: 60% 40%;
+}
+
+footer .container .grid i {
+  align-self: flex-end;
+}
+
+.md-inactive {
+  color: #0d6efd;
 }
