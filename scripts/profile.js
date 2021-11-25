@@ -1,4 +1,4 @@
-console.log("summary.js has been loaded.");
+console.log("profile.js has been loaded.");
 
 // BootStrap Modal
 $('#myModal').on('shown.bs.modal', function () {
