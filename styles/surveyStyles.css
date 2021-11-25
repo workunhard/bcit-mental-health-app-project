@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
-@media only screen and (max-width: 700px) {
-}
+@media only screen and (max-width: 700px) {}
 
 a {
   text-decoration: none !important;
@@ -9,32 +8,44 @@ a {
 
 body {
   margin: 0;
-  padding: 2%;
-  background-color: rgb(0, 0, 0);
-  color: grey;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 10vw 80vw 10vw;
+  background-color: lightblue;
   font-family: "Varela Round", sans-serif;
 }
+#exitBtn {
+  grid-column: 1 / span 1;
+}
 
-#overlay {
-  display: grid;
-  grid-template-rows: 75vh;
-  width: 98%;
-  height: 75%;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
+#exitBtn a {
+  padding: 2em 2em;
+}
+
+#gridContainer {
+  grid-column: 2 / span 1;
+  background-color: white;
+}
+
+label .form-check {
+  text-align: left;
+}
+
+#answers input {
   text-align: center;
 }
 
-#close {
-  float: left;
-  margin-left: 20px;
-  margin-top: 30px;
+button .btn-primary {
+  font-size: 18pt;
 }
 
-#questionXofY {
+#close {
+  justify-self: left;
+  position: fixed;
+}
+
+.questionXofY {
   margin-top: 80px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 17px;
@@ -43,42 +54,16 @@ body {
   color: rgba(0, 0, 0, 0.62);
 }
 
-#questionText {
-  font-family: Roboto;
+#form-check {
+  text-align: center;
+  margin: auto;
+}
+
+.questionText {
   font-style: normal;
   font-weight: normal;
   font-size: 25px;
   line-height: 29px;
   text-align: center;
   color: rgba(0, 0, 0, 0.62);
-}
-
-#nextQuestion {
-  margin: auto;
-  position: relative;
-  width: 25%;
-  top: 1%;
-  bottom: 30%;
-  height: 50px;
-}
-
-#nextButton {
-  background: #a3ade2;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  padding: 5%;
-  bottom: 70%;
-  height: 50px;
-}
-
-#nextButton p {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  height: 50px;
-
-  /* identical to box height */
-  text-align: center;
-
-  color: #ffffff;
 }
