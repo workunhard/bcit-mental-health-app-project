@@ -20,8 +20,13 @@ function insertDetails() {
                 .then(userDoc => {
                     var user_Name = userDoc.data().name;
                     var DOB = userDoc.data().DOB;
+                    var user_city = userDoc.data().city;
+                    var user_school = userDoc.data().school;
+                    
                     console.log(user_Name);
                     console.log(DOB);
+                    console.log(user_city);
+                    console.log(user_school);
 
                     //using jquery
                     $(".grid-item-profile-profileName-Replace").text(user_Name);
@@ -38,8 +43,10 @@ insertDetails();
 
 function setDetails() {
 
-    let setName = document.getElementById("ProfileNameInput").value;
+    let setName = document.getElementById("nameInput").value;
     let setBirthDate = document.getElementById("ProfileBirthdateInput").value;
+    let setCity = document.getElementById("cityInput").value;
+    let setSchool = document.getElementById("schoolInput").value;
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -65,12 +72,21 @@ function setDetails() {
                 if (setBirthDate == ""){
                     setBirthDate = userDoc.data().DOB;
                 }
+                // if (setCity == ""){
+                //     setCity = userDoc.data().city;
+                // }
+                // if (setSchool == ""){
+                //     setSchool = userDoc.data().school;
+                // }
                 db.collection("users").doc(user.uid).update({
                     DOB: setBirthDate,
                     email: userEmail,
-                    name: setName
+                    name: setName,
+                    city: setCity,
+                    school: setSchool
                 });
                 insertDetails();
+                document.getElementById('personalInfoFields').disabled = true;
             });
 
         } else {
@@ -80,35 +96,35 @@ function setDetails() {
 }
 
 // Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['corechart']});
+//google.charts.load('current', {'packages':['corechart']});
 
 // Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
+//google.charts.setOnLoadCallback(drawChart);
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
-function drawChart() {
+// function drawChart() {
 
-    // Create the data table.
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Topping');
-    data.addColumn('number', 'Slices');
-    data.addRows([
-    ['Mushrooms', 3],
-    ['Onions', 1],
-    ['Olives', 1],
-    ['Zucchini', 1],
-    ['Pepperoni', 2]
-    ]);
+//     // Create the data table.
+//     var data = new google.visualization.DataTable();
+//     data.addColumn('string', 'Topping');
+//     data.addColumn('number', 'Slices');
+//     data.addRows([
+//     ['Mushrooms', 3],
+//     ['Onions', 1],
+//     ['Olives', 1],
+//     ['Zucchini', 1],
+//     ['Pepperoni', 2]
+//     ]);
 
-    // Set chart options
-    var options = {'title':'How Much Pizza I Ate Last Night',
-                'width':400,
-                'height':300};
+//     // Set chart options
+//     var options = {'title':'How Much Pizza I Ate Last Night',
+//                 'width':400,
+//                 'height':300};
 
-    // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
-    chart.draw(data, options);
+//     // Instantiate and draw our chart, passing in some options.
+//     var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
+//     chart.draw(data, options);
 
-}
+// }

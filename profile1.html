@@ -81,11 +81,16 @@
                     <label>City</label>
                     <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
                 </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" class="form-control" id="ProfileBirthdateInput"
+                    aria-describedby="emailHelp" placeholder="YYYY - MM - DD">
+                </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                <button type="button" class="btn btn-info" onclick="setDetails()">Save</button>
             </div>
         </form>
         <div class="container text-center py-3">
@@ -237,6 +242,9 @@
         }
         uploadUserProfilePic();
     </script>
+
+    <!-- JavaScript -->
+    <script src="scripts/profile.js"></script>
 
 </body>
 
