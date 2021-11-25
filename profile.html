@@ -2,32 +2,38 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>Wellness @ BCIT</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles/profile.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta page="comp1800 boilerplate code" content="my bcit project">
+    <meta name="author" content="BBY26">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="styles/directory.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=menu">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebaseAPI.js"></script>
 
 </head>
 
 <body>
-
-    <div class="Base-Container">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light grid-container-top-navbar">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Wellness @ BCIT</a>
+                <a class="navbar-brand" href="#" id="logo">Wellness @ BCIT</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,16 +41,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="directory.html">Home</a>
+                            <a class="nav-link" href="directory.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.html">Profile</a>
+                            <a class="nav-link active" aria-current="page" href="profile.html">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="summary.html">Summary</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="supports.html">Supports</a>
+                            <a class="nav-link" href="#">My Progress</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">F.A.Q</a>
@@ -53,124 +56,192 @@
                 </div>
             </div>
         </nav>
-
-        <header class="grid-container-profile">
-
-            <div class="grid-container-profile-div">
-
-                <a href="profile.html" class="grid-item-profile-a">
-                    <img src="images/profile.png" alt=""
-                        class="grid-item-profile-profilePicture ProfilePicture-Styling">
-                </a>
-
-                <h1 class="grid-item-profile-profileName ">
-                    <span class="grid-item-profile-profileName-Replace">Jane Everystudent</span>
-                </h1>
-
+        <div class="container-fluid top">
+            <div class="profile photo">
+                <a href="#"><img src="images/profile.png" /></a>
             </div>
-
-        </header>
-
-        <div class="grid-container-navBar-scrollBar">
-
-            <!-- <a href="" id="grid-item-navbar-scrollBar-Edit">Edit Profile</a> -->
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Edit Profile
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Name:</label>
-                                    <input type="" class="form-control" id="ProfileNameInput"
-                                        aria-describedby="emailHelp" placeholder="Full Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Birthday:</label>
-                                    <input type="date" class="form-control" id="ProfileBirthdateInput"
-                                        aria-describedby="emailHelp" placeholder="YYYY - MM - DD">
-                                </div>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                    onclick="setDetails()">Submit</button>
-                            </form>
-
-                        </div>
-
-                    </div>
+            <div class="profile name" id="mypic-goes-here">
+                <p id="name-goes-here">&nbsp&nbsp&nbsp</p>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>My Profile </h1>
+        <form>
+            <fieldset class="mb-3" id="personalInfoFields" disabled>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
+                <div class="form-group">
+                    <label>School</label>
+                    <input type="text" id="schoolInput" class="form-control" placeholder="Enter your school">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" class="form-control" id="ProfileBirthdateInput"
+                    aria-describedby="emailHelp" placeholder="YYYY - MM - DD">
+                </div>
+            </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-info" onclick="setDetails()">Save</button>
             </div>
-
+        </form>
+        <div class="container text-center py-3">
+            <input type="file" id="upload" accept="image/*" />
         </div>
-
-        <div class="grid-container-profilecontent">
-
-            <p class="grid-item-profilecontent-name">
-                Name:
-            </p>
-
-            <p class="grid-item-profilecontent-name-entry">
-                <span class="grid-item-profile-profileName-Replace">Jane Everystudent</span>
-            </p>
-
-            <p class="grid-item-profilecontent-DOB">
-                Date of Birth:
-            </p>
-
-            <p class="grid-item-profilecontent-DOB-entry">
-                ---
-            </p>
-
-        </div>
-
-        <div class="grid-container-profile-graphcontent">
-
-            <div class="grid-container-PieChart">
-                <!--Div that will hold the pie chart-->
-                <div id="chart_div1"></div>
-            </div>
-
-        </div>
-
     </div>
+    <footer class="navbar justify-content-evenly bg-light fixed-bottom">
+        <div class="container py-3 grid">
+            <a href="directory.html" class="home grid">
+                <i class="material-icons">home</i>
+                <p>Home</p>
+            </a>
+            <a href="DailySurvey.html" class="survey grid">
+                <i class="material-icons">history_edu</i>
+                <p>Survey</p>
+            </a>
+            <a href="Supports.html" class="supports grid">
+                <i class="material-icons">format_list_bulleted</i>
+                <p>Supports</p>
+            </a>
+        </div>
+    </footer>
 
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+
+    <script>
+        function insertName() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+                    // Do something for the current logged-in user here: 
+                    console.log(user.uid);
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            console.log(user_Name);
+                            //method #1:  insert with html only
+                            document.getElementById("name-goes-here").innerText =
+                                user_Name; //using javascript
+                            //method #2:  insert using jquery
+                            //$("#name-goes-here").text(user_Name); //using jquery
+                        })
+                } else {
+                    // No user is signed in.
+                }
+            });
+        }
+        insertName();
+
+        function populateInfo() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid)
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get the data fields of the user
+                            var userName = userDoc.data().name;
+                            var userSchool = userDoc.data().school;
+                            var userCity = userDoc.data().city;
+
+                            //if the data fields are not empty, then write them in to the form.
+                            if (userName != null) {
+                                document.getElementById("nameInput").value = userName;
+                            }
+                            if (userSchool != null) {
+                                document.getElementById("schoolInput").value = userSchool;
+                            }
+                            if (userCity != null) {
+                                document.getElementById("cityInput").value = userCity;
+                            }
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("No user is signed in");
+                }
+            });
+        }
+
+        //call the function to run it 
+        populateInfo();
+
+        function editUserInfo() {
+            //Enable the form fields
+            document.getElementById('personalInfoFields').disabled = false;
+        }
+
+        function saveUserInfo() {
+            // grab value from the form
+            username = document.getElementById('nameInput').value;
+            school = document.getElementById('schoolInput').value;
+            city = document.getElementById('cityInput').value;
+
+            currentUser.update({
+                name: username,
+                school: school,
+                city: city
+            })
+            document.getElementById('personalInfoFields').disabled = true;
+        }
+
+        //change profile pic
+        function uploadUserProfilePic() {
+            // Let's assume my storage is only enabled for authenticated users 
+            // This is set in your firebase console storage "rules" tab
+
+            firebase.auth().onAuthStateChanged(function (user) {
+                var fileInput = document.getElementById("upload");   // pointer #1
+                const image = document.getElementById("mypic-goes-here"); // pointer #2
+
+                // listen for file selection
+                fileInput.addEventListener('change', function (e) {
+                    var file = e.target.files[0];
+                    var blob = URL.createObjectURL(file);
+                    image.src = blob;            // display this image
+
+                    //store using this name
+                    var storageRef = storage.ref("images/" + user.uid + ".jpg");
+
+                    //upload the picked file
+                    storageRef.put(file)
+                        .then(function () {
+                            console.log('Uploaded to Cloud Storage.');
+                        })
+
+                    //get the URL of stored file
+                    storageRef.getDownloadURL()
+                        .then(function (url) {   // Get URL of the uploaded file
+                            console.log(url);    // Save the URL into users collection
+                            db.collection("users").doc(user.uid).update({
+                                profilePic: url
+                            })
+                                .then(function () {
+                                    console.log('Added Profile Pic URL to Firestore.');
+                                })
+                        })
+                })
+            })
+        }
+        uploadUserProfilePic();
+    </script>
 
     <!-- JavaScript -->
     <script src="scripts/profile.js"></script>
