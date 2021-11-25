@@ -41,8 +41,9 @@ label .form-check {
   text-align: center;
 }
 
-button .btn-primary {
+#submit {
   font-size: 18pt;
+  width: 100%;
 }
 
 #close {
