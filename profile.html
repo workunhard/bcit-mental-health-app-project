@@ -25,7 +25,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <!-- Link to the api keys for your firebase project -->
-    <script src="scripts/firebaseAPI.js"></script>
+    <script src="./scripts/firebaseAPI.js"></script>
 
 </head>
 
@@ -33,7 +33,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" id="logo">Wellness @ BCIT</a>
+                <a class="navbar-brand" href="directory.html" id="logo">Wellness @ BCIT</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -83,8 +83,8 @@
                 </div>
                 <div class="form-group">
                     <label>Date of Birth</label>
-                    <input type="date" class="form-control" id="ProfileBirthdateInput"
-                    aria-describedby="emailHelp" placeholder="YYYY - MM - DD">
+                    <input type="date" class="form-control" id="ProfileBirthdateInput" aria-describedby="emailHelp"
+                        placeholder="YYYY - MM - DD">
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
@@ -97,6 +97,7 @@
             <input type="file" id="upload" accept="image/*" />
         </div>
     </div>
+    <div style="margin-bottom: 80px;"></div>
     <footer class="navbar justify-content-evenly bg-light fixed-bottom">
         <div class="container py-3 grid">
             <a href="directory.html" class="home grid">
@@ -121,6 +122,7 @@
 
 
     <script>
+        //show user's name beside the profile image
         function insertName() {
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
@@ -147,6 +149,8 @@
         }
         insertName();
 
+
+        //show user's information on profile page 
         function populateInfo() {
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
@@ -219,24 +223,26 @@
 
                     //store using this name
                     var storageRef = storage.ref("images/" + user.uid + ".jpg");
-
+                    console.log(storageRef);
+                    console.log(file);
                     //upload the picked file
                     storageRef.put(file)
                         .then(function () {
                             console.log('Uploaded to Cloud Storage.');
+                            storageRef.getDownloadURL()
+                                .then(function (url) {   // Get URL of the uploaded file
+                                    console.log(url);    // Save the URL into users collection
+                                    db.collection("users").doc(user.uid).update({
+                                        profilePic: url
+                                    })
+                                        .then(function () {
+                                            console.log('Added Profile Pic URL to Firestore.');
+                                        })
+                                })
                         })
 
                     //get the URL of stored file
-                    storageRef.getDownloadURL()
-                        .then(function (url) {   // Get URL of the uploaded file
-                            console.log(url);    // Save the URL into users collection
-                            db.collection("users").doc(user.uid).update({
-                                profilePic: url
-                            })
-                                .then(function () {
-                                    console.log('Added Profile Pic URL to Firestore.');
-                                })
-                        })
+
                 })
             })
         }
