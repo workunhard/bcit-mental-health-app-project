@@ -123,3 +123,10 @@ footer .container .grid i {
 #spacer{
   margin: 10vh;
 }
+
+.image-styling{
+  place-self: center;
+
+  width:20vh;
+  height:auto;
+}
