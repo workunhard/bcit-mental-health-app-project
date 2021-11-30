@@ -1,34 +1,28 @@
+// Makes sure this JS File has been Loaded.
 console.log("profile.js has been loaded.");
 
-// BootStrap Modal
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})
-
-
-
+// Updates Name on all HTML Pages
 function insertDetails() {
+
     firebase.auth().onAuthStateChanged(user => {
+
         // Check if user is signed in:
         if (user) {
-            // Do something for the current logged-in user here: 
-            console.log(user.uid);
-            //go to the correct user document by referencing to the user uid
+            
+            //Go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid);
-            //get the document for current user.
+
+            //Get the document for current user.
             currentUser.get()
+
                 .then(userDoc => {
+                    // Set User Variables
                     var user_Name = userDoc.data().name;
                     var DOB = userDoc.data().DOB;
                     var user_city = userDoc.data().city;
                     var user_school = userDoc.data().school;
-                    
-                    console.log(user_Name);
-                    console.log(DOB);
-                    console.log(user_city);
-                    console.log(user_school);
 
-                    //using jquery
+                    // Using JQuery to grab and set element details
                     $(".grid-item-profile-profileName-Replace").text(user_Name);
                     $(".grid-item-profilecontent-DOB-entry").text(DOB);
 
@@ -39,31 +33,27 @@ function insertDetails() {
         }
     });
 }
+// Call to function
 insertDetails();
 
+// Sets the User Input information by sending to Firebase and and making an UPDATE call.
 function setDetails() {
 
+    // User Details
     let setName = document.getElementById("nameInput").value;
     let setBirthDate = document.getElementById("ProfileBirthdateInput").value;
     let setCity = document.getElementById("cityInput").value;
     let setSchool = document.getElementById("schoolInput").value;
 
     firebase.auth().onAuthStateChanged(user => {
+        // Checks if user exists
         if (user) {
 
+            // Grab current User
             var currentUser = db.collection("users").doc(user.uid);
             var userID = user.uid;
 
-            // currentUser.update()
-            //     .then(function() {
-            //         alert(user.uid);
-            //         alert("Hello! ALERT2");
-            //         currentUser.update({
-            //             name: setName,
-            //             DOB: setBirthDate
-            //         });
-            //     })
-
+            // Grab User Inputed details
             currentUser.get().then((userDoc) => {
                 var userEmail = userDoc.data().email;
                 if (setName == ""){
@@ -72,12 +62,8 @@ function setDetails() {
                 if (setBirthDate == ""){
                     setBirthDate = userDoc.data().DOB;
                 }
-                // if (setCity == ""){
-                //     setCity = userDoc.data().city;
-                // }
-                // if (setSchool == ""){
-                //     setSchool = userDoc.data().school;
-                // }
+
+                // UPDATE Call
                 db.collection("users").doc(user.uid).update({
                     DOB: setBirthDate,
                     email: userEmail,
@@ -86,6 +72,8 @@ function setDetails() {
                     school: setSchool
                 });
                 insertDetails();
+
+                // Disables Input Boxes
                 document.getElementById('personalInfoFields').disabled = true;
             });
 
@@ -94,37 +82,3 @@ function setDetails() {
         }
     });
 }
-
-// Load the Visualization API and the corechart package.
-//google.charts.load('current', {'packages':['corechart']});
-
-// Set a callback to run when the Google Visualization API is loaded.
-//google.charts.setOnLoadCallback(drawChart);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-// function drawChart() {
-
-//     // Create the data table.
-//     var data = new google.visualization.DataTable();
-//     data.addColumn('string', 'Topping');
-//     data.addColumn('number', 'Slices');
-//     data.addRows([
-//     ['Mushrooms', 3],
-//     ['Onions', 1],
-//     ['Olives', 1],
-//     ['Zucchini', 1],
-//     ['Pepperoni', 2]
-//     ]);
-
-//     // Set chart options
-//     var options = {'title':'How Much Pizza I Ate Last Night',
-//                 'width':400,
-//                 'height':300};
-
-//     // Instantiate and draw our chart, passing in some options.
-//     var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
-//     chart.draw(data, options);
-
-// }
