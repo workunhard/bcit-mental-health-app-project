@@ -139,7 +139,7 @@
         insertName();
 
 
-
+        //get information from a csv file and add it to firebase
         async function getCSVdata() {
             const response = await fetch('./resources/BCIT-Support-Listings-Data.csv'); //send get request
             const data = await response.text();      //get file response
@@ -182,8 +182,8 @@
 
         //         })
         // }
-        // displaySupports();
 
+        // 
         function displayLists(collection) {
             let supportsLists = document.getElementById("supportsLists");
 
