@@ -2,12 +2,11 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <title>Wellness @ BCIT</title>
     <meta page="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BBY26">
-
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS only -->
@@ -18,7 +17,6 @@
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -28,12 +26,11 @@
 
     <!-- My css -->
     <link href="styles/directory.css" rel="stylesheet">
-
 </head>
 
 <body>
+    <!-- Top NavBar -->
     <header>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./profile.html">
@@ -65,59 +62,8 @@
         </nav>
     </header>
     <main>
-        <!-- <nav class="container">
-            <div class="nav">
-                <a id="Summary" href="directory.html">Summary</a>
-                <a id="Survey" href="DailySurvey.html">Daily Survey</a>
-                <a id="Supports" href="Supports1.html">Supports</a>
-            </div>
-        </nav> -->
-        <!-- <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Album example</h1>
-                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the
-                        creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
-                        entirely.</p>
-                    <p>
-                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                    </p>
-                </div>
-            </div>
-        </section> -->
 
-        <template id="CardTemplate">
-            <div class="card py-2 mx-2" style="width: 18rem;">
-                <img class="card-image card-img-top" src="images/hikes.jpg" alt="image">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                        of the
-                        card's content.</p>
-                    <a class="btn btn-primary card-href">Get Details</a>
-                </div>
-            </div>
-        </template>
-
-
-        <footer class="navbar justify-content-evenly bg-light fixed-bottom">
-            <div class="container py-3 grid">
-                <a href="directory.html" class="home grid">
-                    <i class="material-icons md-inactive">home</i>
-                    <p class="md-inactive">Home</p>
-                </a>
-                <a href="DailySurvey.html" class="survey grid">
-                    <i class="material-icons">history_edu</i>
-                    <p>Survey</p>
-                </a>
-                <a href="supports.html" class="supports grid">
-                    <i class="material-icons">format_list_bulleted</i>
-                    <p>Supports</p>
-                </a>
-            </div>
-        </footer>
-
+        <!-- Content -->
         <div class="card-group">
             <a class="card m-4" href="/survey.html">
                 <img src="/images/survey.png" class="card-img-top image-styling m-2" alt="...">
@@ -145,9 +91,38 @@
             </a>
         </div>
 
-        <div id="spacer">
+        <!-- Bottom NavBar -->
+        <template id="CardTemplate">
+            <div class="card py-2 mx-2" style="width: 18rem;">
+                <img class="card-image card-img-top" src="images/hikes.jpg" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                        of the
+                        card's content.</p>
+                    <a class="btn btn-primary card-href">Get Details</a>
+                </div>
+            </div>
+        </template>
 
-        </div>
+        <footer class="navbar justify-content-evenly bg-light fixed-bottom">
+            <div class="container py-3 grid">
+                <a href="directory.html" class="home grid">
+                    <i class="material-icons md-inactive">home</i>
+                    <p class="md-inactive">Home</p>
+                </a>
+                <a href="DailySurvey.html" class="survey grid">
+                    <i class="material-icons">history_edu</i>
+                    <p>Survey</p>
+                </a>
+                <a href="supports.html" class="supports grid">
+                    <i class="material-icons">format_list_bulleted</i>
+                    <p>Supports</p>
+                </a>
+            </div>
+        </footer>
+
+        <div id="spacer"></div>
 
     </main>
 
@@ -155,7 +130,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
 
     <script>
         function insertName() {

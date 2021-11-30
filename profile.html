@@ -2,11 +2,11 @@
 <html>
 
 <head>
+
     <title>Wellness @ BCIT</title>
     <meta page="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BBY26">
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS only -->
@@ -25,11 +25,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <!-- Link to the api keys for your firebase project -->
     <script src="./scripts/firebaseAPI.js"></script>
-
 </head>
 
 <body>
-
     <!-- Top NavBar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -154,7 +152,6 @@
         }
         insertName();
 
-
         //show user's information on profile page 
         function populateInfo() {
             firebase.auth().onAuthStateChanged(user => {
@@ -188,7 +185,6 @@
                 }
             });
         }
-
         //call the function to run it 
         populateInfo();
 
