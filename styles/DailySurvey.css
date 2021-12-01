@@ -123,3 +123,14 @@ footer .container .grid i {
 .md-inactive {
   color: #0d6efd;
 }
+
+#submit {
+  font-size: 18pt;
+  width: 100%;
+  margin: auto;
+}
+
+#takeSurvey
+{
+  text-align: center;
+}

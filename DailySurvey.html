@@ -70,13 +70,14 @@
                 <a href="DailySurvey-rcmd.html">Recommendation</a>
             </div>
         </nav>
-        <a id="linkToSurvey" href="survey.html">
-            <div id="todaySurvey">
-                <div id="surveyButton">
-                    <p>Take Today's Survey</p>
-                </div>
-            </div>
-        </a>
+
+        <!-- 'Take Today's Survey' button-->
+        <div if="takeSurvey">
+            <br>
+            <br>
+            <br>
+        <a href="survey.html"><button type="button" class="btn btn-primary" id="submit">Take Today's Survey</button></a>
+        </div>
 
         <footer class="navbar justify-content-evenly bg-light fixed-bottom">
             <div class="container py-3 grid">
