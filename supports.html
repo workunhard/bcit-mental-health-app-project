@@ -134,7 +134,7 @@
             });
         }
         insertName();
-        
+
         //get information from a csv file and add it to firebase
         async function getCSVdata() {
             const response = await fetch('./resources/BCIT-Support-Listings-Data.csv'); //send get request
@@ -178,8 +178,8 @@
                         let newList = supportsLists.content.cloneNode(true);
 
                         //update title and text and image
-                        newList.querySelector('#sup-name-goes-here').innerHTML = "Support Name: " + title;
-                        newList.querySelector('#category').innerHTML = "Category: " + cate;
+                        newList.querySelector('#sup-name-goes-here').innerHTML = "<b>Support Name:</b> " + title;
+                        newList.querySelector('#category').innerHTML = "<b>Category:</b> " + cate;
                         // newList.querySelector('#listImg').src = "./images/" + collection + ".jpg";  //hikes.jpg
 
                         //give unique ids to all elements for future use
