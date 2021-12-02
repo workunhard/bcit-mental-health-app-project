@@ -15,7 +15,7 @@
     <link href="list-groups.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=menu">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="styles/supports1.css" rel="stylesheet">
+    <link href="styles/supports.css" rel="stylesheet">
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./profile.html">
-                    <img src="./images/profile.png" alt="" width="35">
+                    <img src="./images/gen-profile.png" alt="" width="35">
                     Hi, <span id="name-goes-here">&nbsp&nbsp&nbsp</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -77,6 +77,8 @@
                             <div>
                                 <h6 class="mb-0" id="sup-name-goes-here">&nbsp&nbsp&nbsp</h6>
                                 <p class="mb-0" id="category">Some placeholder content in a paragraph.</p>
+                                <br>
+                                <a class="mb-0" id="view_link" href="#">View</a>
                             </div>
                         </div>
                     </div>
@@ -84,6 +86,7 @@
 
             </div>
         </div>
+        <div id="placeholder"></div>
 
         <!-- Bottom NavBar -->
         <footer class="navbar justify-content-evenly bg-light fixed-bottom">
@@ -175,16 +178,19 @@
                     snap.forEach(doc => {    //iterate thru each doc
                         var title = doc.data().name;
                         var cate = doc.data().category;
+                        var link = doc.data().link;
                         let newList = supportsLists.content.cloneNode(true);
 
                         //update title and text and image
                         newList.querySelector('#sup-name-goes-here').innerHTML = "<b>Support Name:</b> " + title;
                         newList.querySelector('#category').innerHTML = "<b>Category:</b> " + cate;
+                        newList.querySelector('#view_link').href = link;
                         // newList.querySelector('#listImg').src = "./images/" + collection + ".jpg";  //hikes.jpg
 
                         //give unique ids to all elements for future use
                         newList.querySelector('#sup-name-goes-here').setAttribute("id", "ctitle" + i);
                         newList.querySelector('#category').setAttribute("id", "ctext" + i);
+
                         // newList.querySelector('#listImg').setAttribute("id", "cimage" + i);
 
                         //attach to gallery

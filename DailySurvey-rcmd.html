@@ -24,6 +24,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebaseAPI.js"></script>
 
@@ -34,7 +42,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="profile.html">
-                    <img src="./images/profile.png" alt="" width="35">
+                    <img src="./images/gen-profile.png" alt="" width="35">
                     Hi, <span id="name-goes-here">&nbsp&nbsp&nbsp</span>
                 </a>
                 <!-- <a class="navbar-brand" href="#">Wellness @ BCIT</a> -->
@@ -69,6 +77,48 @@
                 <a id="recommendation" href="Supports1.html">Recommendation</a>
             </div>
         </nav>
+        <div class="container px-4 py-5" id="featured-3">
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <div class="feature col">
+                    <div class="feature-icon bg-primary bg-gradient">
+                    </div>
+                    <h2>BCIT Accessibility Services</h2>
+                    <p>
+                        <b>Location: </b>BBY-SW1 Room 2360<br />
+                        <b>Category: </b>Accessibility
+                    </p>
+                    <a href="https://www.bcit.ca/accessibility/accessibility-contact/" class="icon-link">
+                        View
+                    </a>
+                </div>
+                <div class="feature col">
+                    <div class="feature-icon bg-primary bg-gradient"></div>
+                    <h2>Inkblot Therapy</h2>
+                    <p>
+                        <b>Location: </b>Virtual<br />
+                        <b>Category: </b>Counselling
+                    </p>
+                    <a href="https://inkblottherapy.com/bcit" class="icon-link">
+                        View
+                    </a>
+                </div>
+                <div class="feature col">
+                    <div class="feature-icon bg-primary bg-gradient">
+                        <svg class="bi" width="1em" height="1em">
+                            <use xlink:href="#toggles2" />
+                        </svg>
+                    </div>
+                    <h2>Virtual Doctor</h2>
+                    <p>
+                        <b>Location: </b>Virtual<br />
+                        <b>Category: </b>Doctor
+                    </p>
+                    <a href="https://www.mystudentplan.ca/myvirtualdoctor/en/bc" class="icon-link">
+                        View
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <footer class="navbar justify-content-evenly bg-light fixed-bottom">
             <div class="container py-3 grid">

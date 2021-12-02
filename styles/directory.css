@@ -51,6 +51,7 @@ header {
 .profile.photo img {
   border-radius: 50%;
   border: rgb(255, 255, 255) solid 3px;
+  width: 105px;
 }
 
 .profile.name {
@@ -120,13 +121,13 @@ footer .container .grid i {
   color: #0d6efd;
 }
 
-#spacer{
+#spacer {
   margin: 10vh;
 }
 
-.image-styling{
+.image-styling {
   place-self: center;
 
-  width:20vh;
-  height:auto;
+  width: 20vh;
+  height: auto;
 }

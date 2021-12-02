@@ -35,7 +35,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./profile.html">
-                    <img src="./images/profile.png" alt="" width="35">
+                    <img src="./images/gen-profile.png" alt="" width="35">
                     Hi, <span id="name-goes-here">&nbsp&nbsp&nbsp</span>
                 </a>
                 <!-- <a class="navbar-brand" href="#">Wellness @ BCIT</a> -->
@@ -72,12 +72,16 @@
         </nav>
 
         <!-- 'Take Today's Survey' button-->
-        <div if="takeSurvey">
-            <br>
-            <br>
-            <br>
-        <a href="survey.html"><button type="button" class="btn btn-primary" id="submit">Take Today's Survey</button></a>
+        <div class="container">
+            <div if="takeSurvey">
+                <br>
+                <br>
+                <br>
+                <a href="survey.html"><button type="button" class="btn btn-primary" id="submit">Take Today's
+                        Survey</button></a>
+            </div>
         </div>
+
 
         <footer class="navbar justify-content-evenly bg-light fixed-bottom">
             <div class="container py-3 grid">

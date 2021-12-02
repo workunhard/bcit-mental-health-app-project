@@ -57,7 +57,7 @@
         </nav>
         <div class="container-fluid top">
             <div class="profile photo">
-                <a href="#"><img src="images/profile.png" /></a>
+                <a href="#"><img src="images/gen-profile.png" /></a>
             </div>
             <div class="profile name" id="mypic-goes-here">
                 <p id="name-goes-here">&nbsp&nbsp&nbsp</p>
@@ -95,11 +95,8 @@
                 <button type="button" class="btn btn-info" onclick="setDetails()">Save</button>
             </div>
         </form>
-        <div class="container text-center py-3">
-            <input type="file" id="upload" accept="image/*" />
-        </div>
     </div>
-    
+
     <!-- Bottom NavBar -->
     <div style="margin-bottom: 80px;"></div>
     <footer class="navbar justify-content-evenly bg-light fixed-bottom">
@@ -167,6 +164,7 @@
                             var userName = userDoc.data().name;
                             var userSchool = userDoc.data().school;
                             var userCity = userDoc.data().city;
+                            var userDOB = userDoc.data().DOB;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
@@ -177,6 +175,9 @@
                             }
                             if (userCity != null) {
                                 document.getElementById("cityInput").value = userCity;
+                            }
+                            if (userDOB != null) {
+                                document.getElementById("ProfileBirthdateInput").value = userDOB;
                             }
                         })
                 } else {
