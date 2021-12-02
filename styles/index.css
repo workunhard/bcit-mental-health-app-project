@@ -16,6 +16,10 @@ body {
     }
 }
 
+h1 {
+    color: rgb(95, 203, 239);
+}
+
 nav a,
 a:visited {
     text-decoration: none;
