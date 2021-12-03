@@ -15,17 +15,16 @@
     <link href="list-groups.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=menu">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="styles/supports.css" rel="stylesheet">
+    <link href="../styles/supports.css" rel="stylesheet">
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-    <!-- Link to the api keys for your firebase project -->
-    <script src="scripts/firebaseAPI.js"></script>
+    <!-- Link to the api keys -->
+    <script src="../scripts/firebaseAPI.js"></script>
 
 </head>
 
@@ -36,7 +35,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./profile.html">
-                    <img src="./images/gen-profile.png" alt="" width="35">
+                    <img src="../images/gen-profile.png" alt="" width="35">
                     Hi, <span id="name-goes-here">&nbsp&nbsp&nbsp</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -76,7 +75,7 @@
                         <div class="d-flex gap-2 w-100 justify-content-between">
                             <div>
                                 <h6 class="mb-0" id="sup-name-goes-here">&nbsp&nbsp&nbsp</h6>
-                                <p class="mb-0" id="category">Some placeholder content in a paragraph.</p>
+                                <p class="mb-0" id="category">&nbsp&nbsp&nbsp</p>
                                 <br>
                                 <a class="mb-0" id="view_link" href="#">View</a>
                             </div>
@@ -87,49 +86,44 @@
             </div>
         </div>
         <div id="placeholder"></div>
-
-        <!-- Bottom NavBar -->
-        <footer class="navbar justify-content-evenly bg-light fixed-bottom">
-            <div class="container py-3 grid">
-                <a href="directory.html" class="home grid">
-                    <i class="material-icons">home</i>
-                    <p>Home</p>
-                </a>
-                <a href="DailySurvey.html" class="survey grid">
-                    <i class="material-icons">history_edu</i>
-                    <p>Survey</p>
-                </a>
-                <a href="supports.html" class="supports grid">
-                    <i class="material-icons md-inactive">format_list_bulleted</i>
-                    <p class="md-inactive">Supports</p>
-                </a>
-            </div>
-        </footer>
-
     </main>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <!-- Bottom NavBar -->
+    <footer class="navbar justify-content-evenly bg-light fixed-bottom">
+        <div class="container py-3 grid">
+            <a href="directory.html" class="home grid">
+                <i class="material-icons">home</i>
+                <p>Home</p>
+            </a>
+            <a href="DailySurvey.html" class="survey grid">
+                <i class="material-icons">history_edu</i>
+                <p>Survey</p>
+            </a>
+            <a href="supports.html" class="supports grid">
+                <i class="material-icons md-inactive">format_list_bulleted</i>
+                <p class="md-inactive">Supports</p>
+            </a>
+        </div>
+    </footer>
 
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
     <script>
+        // display name on top navbar
         function insertName() {
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
                 if (user) {
-                    // Do something for the current logged-in user here: 
                     console.log(user.uid);
-                    //go to the correct user document by referencing to the user uid
                     currentUser = db.collection("users").doc(user.uid);
-                    //get the document for current user.
                     currentUser.get()
                         .then(userDoc => {
                             var user_Name = userDoc.data().name;
                             console.log(user_Name);
-                            //method #1:  insert with html only
                             document.getElementById("name-goes-here").innerText =
-                                user_Name; //using javascript
+                                user_Name;
                         })
                 } else {
                     // No user is signed in.
@@ -169,6 +163,7 @@
             })
         }
 
+        // display firebase data on supports page
         function displayLists(collection) {
             let supportsLists = document.getElementById("supportsLists");
 

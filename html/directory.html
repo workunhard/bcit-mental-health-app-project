@@ -2,12 +2,11 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <title>Wellness @ BCIT</title>
     <meta page="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BBY26">
-
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS only -->
@@ -18,27 +17,27 @@
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-    <!-- Link to the api keys for your firebase project -->
-    <script src="scripts/firebaseAPI.js"></script>
+    <!-- Link to the api keys -->
+    <script src="../scripts/firebaseAPI.js"></script>
 
     <!-- My css -->
-    <link href="styles/DailySurvey.css" rel="stylesheet">
+    <link href="../styles/directory.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Top NavBar -->
     <header>
+        <!-- top navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./profile.html">
-                    <img src="./images/gen-profile.png" alt="" width="35">
+                    <img src="../images/gen-profile.png" alt="" width="35">
                     Hi, <span id="name-goes-here">&nbsp&nbsp&nbsp</span>
                 </a>
-                <!-- <a class="navbar-brand" href="#">Wellness @ BCIT</a> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -61,37 +60,47 @@
                 </div>
             </div>
         </nav>
-
     </header>
     <main>
-        <nav class="container">
-            <div class="nav">
-                <a id="Survey" href="DailySurvey.html">Daily Survey</a>
-                <a href="DailySurvey-rcmd.html">Recommendation</a>
-            </div>
-        </nav>
 
-        <!-- 'Take Today's Survey' button-->
-        <div class="container">
-            <div if="takeSurvey">
-                <br>
-                <br>
-                <br>
-                <a href="survey.html"><button type="button" class="btn btn-primary" id="submit">Take Today's
-                        Survey</button></a>
-            </div>
+        <!-- Content -->
+        <div class="card-group">
+            <a class="card m-4" href="./survey.html">
+                <img src="../images/survey.png" class="card-img-top image-styling m-2" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Survey</h5>
+                    <p class="card-text">A daily survey you can take to measure you overall mental health!</p>
+                    <p class="card-text"><small class="text-muted">Last done 3 mins ago</small></p>
+                </div>
+            </a>
+            <a class="card m-4" href="./supports.html">
+                <img src="../images/support.png" class="card-img-top image-styling m-2" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Supports</h5>
+                    <p class="card-text">A list of Mental Health supports you can reach out to quickly.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 1 month ago</small></p>
+                </div>
+            </a>
+            <a class="card m-4" href="./profile.html">
+                <img src="../images/gen-profile.png" class="card-img-top image-styling m-2" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Profile</h5>
+                    <p class="card-text">View and Customize your profile!<br>&nbsp</p>
+                    <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
+                </div>
+            </a>
         </div>
 
-
+        <!-- Bottom NavBar -->
         <footer class="navbar justify-content-evenly bg-light fixed-bottom">
             <div class="container py-3 grid">
                 <a href="directory.html" class="home grid">
-                    <i class="material-icons">home</i>
-                    <p>Home</p>
+                    <i class="material-icons md-inactive">home</i>
+                    <p class="md-inactive">Home</p>
                 </a>
                 <a href="DailySurvey.html" class="survey grid">
-                    <i class="material-icons md-inactive">history_edu</i>
-                    <p class="md-inactive">Survey</p>
+                    <i class="material-icons">history_edu</i>
+                    <p>Survey</p>
                 </a>
                 <a href="supports.html" class="supports grid">
                     <i class="material-icons">format_list_bulleted</i>
@@ -99,6 +108,9 @@
                 </a>
             </div>
         </footer>
+
+        <div id="spacer"></div>
+
     </main>
 
 
@@ -106,8 +118,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-
     <script>
+        // display name on top navbar
         function insertName() {
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
@@ -121,11 +133,8 @@
                         .then(userDoc => {
                             var user_Name = userDoc.data().name;
                             console.log(user_Name);
-                            //method #1:  insert with html only
                             document.getElementById("name-goes-here").innerText =
-                                user_Name; //using javascript
-                            //method #2:  insert using jquery
-                            //$("#name-goes-here").text(user_Name); //using jquery
+                                user_Name;
                         })
                 } else {
                     // No user is signed in.
@@ -133,7 +142,39 @@
             });
         }
         insertName();
+    </script>
 
+    <script>
+        function displayCards(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => { //iterate thru each doc
+                        var title = doc.data().name;
+                        var details = doc.data().details;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = details;
+                        newcard.querySelector('.card-image').src = "./images/" + collection +
+                            ".jpg"; //articlesTemp.jpg
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                        //attach to gallery
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                    })
+                })
+        }
+
+        displayCards("articles");
+        // displayCards("events");
 
     </script>
 
