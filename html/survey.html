@@ -543,8 +543,8 @@
         // Store users' survey result to firestore
         function writeSurvey() {
             console.log("submitted");
+            // Get users' answers
             let goodDay = document.querySelector('input[name="goodDay"]:checked').value;
-            console.log(goodDay);
             let overwhelmed = document.querySelector('input[name="overwhelmed"]:checked').value;
             let finances = document.querySelector('input[name="finances"]:checked').value;
             let healthIssue = document.querySelector('input[name="healthIssue"]:checked').value;
@@ -563,7 +563,7 @@
                         .then(userDoc => {
                             //get user Email
                             var userEmail = userDoc.data().email;
-                            // Start a new collection and add all data in it.
+                            // Start a new collection and add user's answer in it.
                             db.collection("Survey").add({
                                 UserID: userID,
                                 UserEmail: userEmail,

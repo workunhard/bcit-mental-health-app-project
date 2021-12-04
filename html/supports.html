@@ -143,11 +143,11 @@
                 const fee = columns[1];        //need fee?               
                 const support = columns[2];     //support name
                 const location = columns[3];    //location
-                const phoneNumber = columns[5];
-                const fax = columns[6];
-                const hours = columns[7];
-                const email = columns[8];
-                const link = columns[9];
+                const phoneNumber = columns[5]; //phone number
+                const fax = columns[6];         //fax   
+                const hours = columns[7];       //operation hours
+                const email = columns[8];       //emails
+                const link = columns[9];        //links to homepage
                 db.collection("supports").add({   //write to firestore
                     name: support,
                     category: category,
@@ -176,17 +176,10 @@
                         var link = doc.data().link;
                         let newList = supportsLists.content.cloneNode(true);
 
-                        //update title and text and image
+                        //update data of support
                         newList.querySelector('#sup-name-goes-here').innerHTML = "<b>Support Name:</b> " + title;
                         newList.querySelector('#category').innerHTML = "<b>Category:</b> " + cate;
                         newList.querySelector('#view_link').href = link;
-                        // newList.querySelector('#listImg').src = "./images/" + collection + ".jpg";  //hikes.jpg
-
-                        //give unique ids to all elements for future use
-                        newList.querySelector('#sup-name-goes-here').setAttribute("id", "ctitle" + i);
-                        newList.querySelector('#category').setAttribute("id", "ctext" + i);
-
-                        // newList.querySelector('#listImg').setAttribute("id", "cimage" + i);
 
                         //attach to gallery
                         document.getElementById(collection + "-go-here").appendChild(newList);
