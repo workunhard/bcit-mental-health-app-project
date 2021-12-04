@@ -1,4 +1,4 @@
-//submit.onClick redirects 
+//submit.onClick redirects
 
 // Grab all 'clicked' radios (.check())
 
@@ -10,12 +10,13 @@ function giveRecommendations(rec1, rec2) {
         .where("category", "==", rec1)
         .where("category", "==", rec2)
         .get()
-        .then(snapshot => {
-            snapshot.forEach(doc => { //iterate thru list of supports for nutrition category
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                //iterate thru list of supports for nutrition category
                 console.log(doc.data().name);
                 //display card
             });
-        })
+        });
 }
 
 // listener for submit
@@ -24,12 +25,12 @@ function addSubmitListener() {
     button.addEventListener("click", function () {
         // get all answers
         // figure out combos
-        if ((val1 == 1) && (val2 == 3)) {
+        if (val1 == 1 && val2 == 3) {
             giveRecommendations("nutrition", "sleep");
         } else {
             giveRecommendations();
         }
-    })
+    });
 }
 
 addSubmitListener();

@@ -2,20 +2,19 @@
 <html>
 
 <head>
-
     <title>Wellness @ BCIT</title>
-    <meta page="comp1800 boilerplate code" content="my bcit project">
-    <meta name="author" content="BBY26">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta page="comp1800 boilerplate code" content="my bcit project" />
+    <meta name="author" content="BBY26" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="list-groups.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=menu">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../styles/supports.css" rel="stylesheet">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="list-groups.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=menu" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -26,16 +25,17 @@
     <!-- Link to the api keys -->
     <script src="../scripts/firebaseAPI.js"></script>
 
+    <!-- My CSS -->
+    <link href="../styles/supports.css" rel="stylesheet" />
 </head>
 
 <body>
-
     <!-- Top NavBar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./profile.html">
-                    <img src="../images/gen-profile.png" alt="" width="35">
+                    <img src="../images/gen-profile.png" alt="" width="35" />
                     Hi, <span id="name-goes-here">&nbsp&nbsp&nbsp</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -71,18 +71,17 @@
                 <template id="supportsLists">
                     <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                         <img id="listImg" src="https://github.com/twbs.png" alt="twbs" width="32" height="32"
-                            class="rounded-circle flex-shrink-0">
+                            class="rounded-circle flex-shrink-0" />
                         <div class="d-flex gap-2 w-100 justify-content-between">
                             <div>
                                 <h6 class="mb-0" id="sup-name-goes-here">&nbsp&nbsp&nbsp</h6>
                                 <p class="mb-0" id="category">&nbsp&nbsp&nbsp</p>
-                                <br>
+                                <br />
                                 <a class="mb-0" id="view_link" href="#">View</a>
                             </div>
                         </div>
                     </div>
                 </template>
-
             </div>
         </div>
         <div id="placeholder"></div>
@@ -106,49 +105,35 @@
         </div>
     </footer>
 
-    <!-- bootstrap script -->
+    <!-- bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
-    <script>
-        // display name on top navbar
-        function insertName() {
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {
-                    console.log(user.uid);
-                    currentUser = db.collection("users").doc(user.uid);
-                    currentUser.get()
-                        .then(userDoc => {
-                            var user_Name = userDoc.data().name;
-                            console.log(user_Name);
-                            document.getElementById("name-goes-here").innerText =
-                                user_Name;
-                        })
-                } else {
-                    // No user is signed in.
-                }
-            });
-        }
-        insertName();
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 
+    <!-- common js -->
+    <script src="../scripts/my_script.js"></script>
+
+    <script>
         //get information from a csv file and add it to firebase
         async function getCSVdata() {
-            const response = await fetch('./resources/BCIT-Support-Listings-Data.csv'); //send get request
-            const data = await response.text();      //get file response
-            const list = data.split('\n').slice(1);  //get line
-            list.forEach(row => {
-                const columns = row.split(','); //get token 
-                const category = columns[0];    //category
-                const fee = columns[1];        //need fee?               
-                const support = columns[2];     //support name
-                const location = columns[3];    //location
+            const response = await fetch(
+                "./resources/BCIT-Support-Listings-Data.csv"
+            ); //send get request
+            const data = await response.text(); //get file response
+            const list = data.split("\n").slice(1); //get line
+            list.forEach((row) => {
+                const columns = row.split(","); //get token
+                const category = columns[0]; //category
+                const fee = columns[1]; //need fee?
+                const support = columns[2]; //support name
+                const location = columns[3]; //location
                 const phoneNumber = columns[5]; //phone number
-                const fax = columns[6];         //fax   
-                const hours = columns[7];       //operation hours
-                const email = columns[8];       //emails
-                const link = columns[9];        //links to homepage
-                db.collection("supports").add({   //write to firestore
+                const fax = columns[6]; //fax
+                const hours = columns[7]; //operation hours
+                const email = columns[8]; //emails
+                const link = columns[9]; //links to homepage
+                db.collection("supports").add({
+                    //write to firestore
                     name: support,
                     category: category,
                     fee: fee,
@@ -157,40 +142,44 @@
                     fax: fax,
                     hours: hours,
                     email: email,
-                    link: link
-                })
-
-            })
+                    link: link,
+                });
+            });
         }
 
         // display firebase data on supports page
         function displayLists(collection) {
             let supportsLists = document.getElementById("supportsLists");
 
-            db.collection(collection).get()
-                .then(snap => {
+            db.collection(collection)
+                .get()
+                .then((snap) => {
                     var i = 1;
-                    snap.forEach(doc => {    //iterate thru each doc
+                    snap.forEach((doc) => {
+                        //iterate thru each doc
                         var title = doc.data().name;
                         var cate = doc.data().category;
                         var link = doc.data().link;
                         let newList = supportsLists.content.cloneNode(true);
 
                         //update data of support
-                        newList.querySelector('#sup-name-goes-here').innerHTML = "<b>Support Name:</b> " + title;
-                        newList.querySelector('#category').innerHTML = "<b>Category:</b> " + cate;
-                        newList.querySelector('#view_link').href = link;
+                        newList.querySelector("#sup-name-goes-here").innerHTML =
+                            "<b>Support Name:</b> " + title;
+                        newList.querySelector("#category").innerHTML =
+                            "<b>Category:</b> " + cate;
+                        newList.querySelector("#view_link").href = link;
 
-                        //attach to gallery
-                        document.getElementById(collection + "-go-here").appendChild(newList);
+                        //attach to list
+                        document
+                            .getElementById(collection + "-go-here")
+                            .appendChild(newList);
                         i++;
-                    })
-                })
+                    });
+                });
         }
 
         displayLists("supports");
     </script>
-
 </body>
 
 </html>

@@ -8,9 +8,8 @@
     <meta name="author" content="Code Workun" />
     <meta name="team" content="26" />
     <meta name="set" content="B" />
-    <link rel="stylesheet" href="../styles/surveyStyles.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,23 +21,21 @@
     <script src="../scripts/firebaseAPI.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../styles/surveyStyles.css" />
 </head>
 
 <body>
-
     <div id="exitBtn">
         <a href="DailySurvey.html">
-            <button type="button" class="btn-close" aria-label="Close" id="close">
-            </button>
+            <button type="button" class="btn-close" aria-label="Close" id="close"></button>
         </a>
     </div>
     <div class="questionText">
-        <p>Please agree/disagree with the following questions:
-        </p>
+        <p>Please agree/disagree with the following questions:</p>
     </div>
 
     <div id="gridContainer">
-
         <!-- Question 1 -->
         <div id="q1">
             <div class="questionXofY">
@@ -46,44 +43,42 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    Today is a good day
-                </p>
+                <p>Today is a good day</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="goodDay" id="1.1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="goodDay" id="1.1" value="option1" checked />
                     <label class="form-check-label" for="exampleRadios1">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="goodDay" id="1.2" value="option2">
+                    <input class="form-check-input" type="radio" name="goodDay" id="1.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios1">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="goodDay" id="1.3" value="option3">
+                    <input class="form-check-input" type="radio" name="goodDay" id="1.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios1">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="goodDay" id="1.4" value="option4">
+                    <input class="form-check-input" type="radio" name="goodDay" id="1.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios1">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="goodDay" id="1.5" value="option5">
+                    <input class="form-check-input" type="radio" name="goodDay" id="1.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios1">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 2 -->
@@ -93,44 +88,42 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    I feel overwhelmed with the amount of schoolwork I need to do
-                </p>
+                <p>I feel overwhelmed with the amount of schoolwork I need to do</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.1" value="option1" checked />
                     <label class="form-check-label" for="exampleRadios2">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.2" value="option2">
+                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios2">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.3" value="option3">
+                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios2">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.4" value="option4">
+                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios2">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.5" value="option5">
+                    <input class="form-check-input" type="radio" name="overwhelmed" id="2.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios2">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 3 -->
@@ -140,44 +133,42 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    I feel on top of my personal finances
-                </p>
+                <p>I feel on top of my personal finances</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="finances" id="3.1" value="option1">
+                    <input class="form-check-input" type="radio" name="finances" id="3.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios1">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="finances" id="3.2" value="option2">
+                    <input class="form-check-input" type="radio" name="finances" id="3.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios1">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="finances" id="3.3" value="option3" checked>
+                    <input class="form-check-input" type="radio" name="finances" id="3.3" value="option3" checked />
                     <label class="form-check-label" for="exampleRadios1">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="finances" id="3.4" value="option4">
+                    <input class="form-check-input" type="radio" name="finances" id="3.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios1">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="finances" id="3.5" value="option5">
+                    <input class="form-check-input" type="radio" name="finances" id="3.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios1">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 4 -->
@@ -187,43 +178,45 @@
             </div>
 
             <div class="questionText">
-                <p>I don't have any health issues that I would normally take to a doctor
+                <p>
+                    I don't have any health issues that I would normally take to a
+                    doctor
                 </p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="healthIssue" id="4.1" value="option1">
+                    <input class="form-check-input" type="radio" name="healthIssue" id="4.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios4">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="healthIssue" id="4.2" value="option2">
+                    <input class="form-check-input" type="radio" name="healthIssue" id="4.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios4">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="healthIssue" id="4.3" value="option3">
+                    <input class="form-check-input" type="radio" name="healthIssue" id="4.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios4">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="healthIssue" id="4.4" value="option4" checked>
+                    <input class="form-check-input" type="radio" name="healthIssue" id="4.4" value="option4" checked />
                     <label class="form-check-label" for="exampleRadios4">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="healthIssue" id="4.5" value="option5">
+                    <input class="form-check-input" type="radio" name="healthIssue" id="4.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios4">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 5 -->
@@ -233,44 +226,42 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    I maintain good nutritional habits
-                </p>
+                <p>I maintain good nutritional habits</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="nutrition" id="5.1" value="option1">
+                    <input class="form-check-input" type="radio" name="nutrition" id="5.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios5">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="nutrition" id="5.2" value="option2">
+                    <input class="form-check-input" type="radio" name="nutrition" id="5.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios5">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="nutrition" id="5.3" value="option3">
+                    <input class="form-check-input" type="radio" name="nutrition" id="5.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios5">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="nutrition" id="5.4" value="option4">
+                    <input class="form-check-input" type="radio" name="nutrition" id="5.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios5">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="nutrition" id="5.5" value="option5" checked>
+                    <input class="form-check-input" type="radio" name="nutrition" id="5.5" value="option5" checked />
                     <label class="form-check-label" for="exampleRadios5">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 6 -->
@@ -280,44 +271,43 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    Most of the stress I feel is school-related
-                </p>
+                <p>Most of the stress I feel is school-related</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school_stress" id="6.1" value="option1">
+                    <input class="form-check-input" type="radio" name="school_stress" id="6.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios6">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school_stress" id="6.2" value="option2" checked>
+                    <input class="form-check-input" type="radio" name="school_stress" id="6.2" value="option2"
+                        checked />
                     <label class="form-check-label" for="exampleRadios6">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school_stress" id="6.3" value="option3">
+                    <input class="form-check-input" type="radio" name="school_stress" id="6.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios6">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school_stress" id="6.4" value="option4">
+                    <input class="form-check-input" type="radio" name="school_stress" id="6.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios6">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school_stress" id="6.5" value="option5">
+                    <input class="form-check-input" type="radio" name="school_stress" id="6.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios6">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 7 -->
@@ -327,45 +317,43 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    My personal relationships are a major source of stress for me
-                </p>
+                <p>My personal relationships are a major source of stress for me</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="relationships" id="7.1" value="option1">
+                    <input class="form-check-input" type="radio" name="relationships" id="7.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios7">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="relationships" id="7.2" value="option2">
+                    <input class="form-check-input" type="radio" name="relationships" id="7.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios7">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="relationships" id="7.3" value="option3" checked>
+                    <input class="form-check-input" type="radio" name="relationships" id="7.3" value="option3"
+                        checked />
                     <label class="form-check-label" for="exampleRadios7">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="relationships" id="7.4" value="option4">
+                    <input class="form-check-input" type="radio" name="relationships" id="7.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios7">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="relationships" id="7.5" value="option5">
+                    <input class="form-check-input" type="radio" name="relationships" id="7.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios7">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
-
+            <br />
         </div>
 
         <!-- Question 8 -->
@@ -375,43 +363,42 @@
             </div>
 
             <div class="questionText">
-                <p>I generally feel better when I'm on campus
-                </p>
+                <p>I generally feel better when I'm on campus</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="campus" id="8.1" value="option1">
+                    <input class="form-check-input" type="radio" name="campus" id="8.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios8">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="campus" id="8.2" value="option2" checked>
+                    <input class="form-check-input" type="radio" name="campus" id="8.2" value="option2" checked />
                     <label class="form-check-label" for="exampleRadios8">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="campus" id="8.3" value="option3">
+                    <input class="form-check-input" type="radio" name="campus" id="8.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios8">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="campus" id="8.4" value="option4">
+                    <input class="form-check-input" type="radio" name="campus" id="8.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios8">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="campus" id="8.5" value="option5">
+                    <input class="form-check-input" type="radio" name="campus" id="8.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios8">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 9 -->
@@ -421,44 +408,43 @@
             </div>
 
             <div class="questionText">
-                <p>
-                    I'm on top of my dental hygiene and regularly visit the dentist
-                </p>
+                <p>I'm on top of my dental hygiene and regularly visit the dentist</p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.1" value="option1">
+                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.1" value="option1" />
                     <label class="form-check-label" for="exampleRadios9">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.2" value="option2">
+                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios9">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.3" value="option3">
+                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios9">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.4" value="option4" checked>
+                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.4" value="option4"
+                        checked />
                     <label class="form-check-label" for="exampleRadios9">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.5" value="option5">
+                    <input class="form-check-input" type="radio" name="dentalHygiene" id="9.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios9">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
 
         <!-- Question 10 -->
@@ -469,54 +455,57 @@
 
             <div class="questionText">
                 <p>
-                    I would benefit from discussing my problems in a safe, confidential environment
+                    I would benefit from discussing my problems in a safe, confidential
+                    environment
                 </p>
             </div>
 
             <div class="answers">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="environment" id="10.1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="environment" id="10.1" value="option1" checked />
                     <label class="form-check-label" for="exampleRadios10">
                         Strongly agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="environment" id="10.2" value="option2">
+                    <input class="form-check-input" type="radio" name="environment" id="10.2" value="option2" />
                     <label class="form-check-label" for="exampleRadios10">
                         Somewhat agree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="environment" id="10.3" value="option3">
+                    <input class="form-check-input" type="radio" name="environment" id="10.3" value="option3" />
                     <label class="form-check-label" for="exampleRadios10">
                         Neither agree or disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="environment" id="10.4" value="option4">
+                    <input class="form-check-input" type="radio" name="environment" id="10.4" value="option4" />
                     <label class="form-check-label" for="exampleRadios10">
                         Disagree
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="environment" id="10.5" value="option5">
+                    <input class="form-check-input" type="radio" name="environment" id="10.5" value="option5" />
                     <label class="form-check-label" for="exampleRadios10">
                         Strongly disagree
                     </label>
                 </div>
             </div>
-            <br>
+            <br />
         </div>
-        <br>
-        <br>
+        <br />
+        <br />
         <button type="button" class="btn btn-primary" id="submit" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            onclick="writeSurvey()">Submit</button>
+            onclick="writeSurvey()">
+            Submit
+        </button>
 
-        <br>
-        <br>
-        <br>
+        <br />
+        <br />
+        <br />
 
-        <!-- Modal -->
+        <!-- Modal informing survey has finished-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -524,17 +513,19 @@
                         <h5 class="modal-title" id="exampleModalLabel">Survey</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        You have finished today's survey :)
-                    </div>
+                    <div class="modal-body">You have finished today's survey :)</div>
                     <div class="modal-footer">
                         <a href="DailySurvey.html"><button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Close</button></a>
+                                data-bs-dismiss="modal">
+                                Close
+                            </button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
@@ -544,41 +535,60 @@
         function writeSurvey() {
             console.log("submitted");
             // Get users' answers
-            let goodDay = document.querySelector('input[name="goodDay"]:checked').value;
-            let overwhelmed = document.querySelector('input[name="overwhelmed"]:checked').value;
-            let finances = document.querySelector('input[name="finances"]:checked').value;
-            let healthIssue = document.querySelector('input[name="healthIssue"]:checked').value;
-            let nutrition = document.querySelector('input[name="nutrition"]:checked').value;
-            let school_stress = document.querySelector('input[name="school_stress"]:checked').value;
-            let relationships = document.querySelector('input[name="relationships"]:checked').value;
-            let campus = document.querySelector('input[name="campus"]:checked').value;
-            let dentalHygiene = document.querySelector('input[name="dentalHygiene"]:checked').value;
-            let environment = document.querySelector('input[name="environment"]:checked').value;
-            firebase.auth().onAuthStateChanged(user => {
+            let goodDay = document.querySelector(
+                'input[name="goodDay"]:checked'
+            ).value;
+            let overwhelmed = document.querySelector(
+                'input[name="overwhelmed"]:checked'
+            ).value;
+            let finances = document.querySelector(
+                'input[name="finances"]:checked'
+            ).value;
+            let healthIssue = document.querySelector(
+                'input[name="healthIssue"]:checked'
+            ).value;
+            let nutrition = document.querySelector(
+                'input[name="nutrition"]:checked'
+            ).value;
+            let school_stress = document.querySelector(
+                'input[name="school_stress"]:checked'
+            ).value;
+            let relationships = document.querySelector(
+                'input[name="relationships"]:checked'
+            ).value;
+            let campus = document.querySelector(
+                'input[name="campus"]:checked'
+            ).value;
+            let dentalHygiene = document.querySelector(
+                'input[name="dentalHygiene"]:checked'
+            ).value;
+            let environment = document.querySelector(
+                'input[name="environment"]:checked'
+            ).value;
+            firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
-                    var currentUser = db.collection("users").doc(user.uid)
+                    var currentUser = db.collection("users").doc(user.uid);
                     var userID = user.uid;
                     //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get user Email
-                            var userEmail = userDoc.data().email;
-                            // Start a new collection and add user's answer in it.
-                            db.collection("Survey").add({
-                                UserID: userID,
-                                UserEmail: userEmail,
-                                GoodDay: goodDay,
-                                Overwhelmed: overwhelmed,
-                                Finances: finances,
-                                HealthIssue: healthIssue,
-                                Nutrition: nutrition,
-                                School_stress: school_stress,
-                                Relationships: relationships,
-                                Campus: campus,
-                                DentalHygiene: dentalHygiene,
-                                Environment: environment
-                            });
-                        })
+                    currentUser.get().then((userDoc) => {
+                        //get user Email
+                        var userEmail = userDoc.data().email;
+                        // Start a new collection and add user's answer in it.
+                        db.collection("Survey").add({
+                            UserID: userID,
+                            UserEmail: userEmail,
+                            GoodDay: goodDay,
+                            Overwhelmed: overwhelmed,
+                            Finances: finances,
+                            HealthIssue: healthIssue,
+                            Nutrition: nutrition,
+                            School_stress: school_stress,
+                            Relationships: relationships,
+                            Campus: campus,
+                            DentalHygiene: dentalHygiene,
+                            Environment: environment,
+                        });
+                    });
                 } else {
                     // No user is signed in.
                     console.log("no user signed in");

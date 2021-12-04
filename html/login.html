@@ -2,21 +2,21 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Wellness @ BCIT</title>
-    <meta name="comp1800 template" content="my bcit Hiking App project">
+    <meta name="comp1800 template" content="my bcit Hiking App project" />
 
     <!-- Bootstrap FirebaseUI CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <link rel="stylesheet" href="../styles/login.css">
+
 
     <!-- Firebase 8 CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-        </script>
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -25,6 +25,8 @@
     <!-- Link to the api keys -->
     <script src="../scripts/firebaseAPI.js"></script>
 
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../styles/login.css" />
 </head>
 
 <body>
@@ -35,27 +37,26 @@
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <!--------------------------------------------------------------------->
     <script>
         // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
         var uiConfig = {
             callbacks: {
                 signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    // If the user is a "brand new" user, then create a new "user" in our database.
-                    // Assign this user with the name and email provided.
-                    //------------------------------------------------------------------------------------------
-                    var user = authResult.user;                            // get the user object from the Firebase authentication database
-                    if (authResult.additionalUserInfo.isNewUser) {         //if new user
-                        db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
-                            name: user.displayName,                    //"users" collection
-                            email: user.email                          //with authenticated user's ID (user.uid)
-                        }).then(function () {
-                            console.log("New user added to firestore");
-                            window.location.assign("directory.html");       //re-direct to directory.html after signup
-                        })
+                    var user = authResult.user; // get the user object from the Firebase authentication database
+                    if (authResult.additionalUserInfo.isNewUser) {
+                        //if new user
+                        db.collection("users")
+                            .doc(user.uid)
+                            .set({
+                                //write to firestore. We are using the UID for the ID in users collection
+                                name: user.displayName, //"users" collection
+                                email: user.email, //with authenticated user's ID (user.uid)
+                            })
+                            .then(function () {
+                                console.log("New user added to firestore");
+                                window.location.assign("directory.html"); //re-direct to directory.html after signup
+                            })
                             .catch(function (error) {
                                 console.log("Error adding new user: " + error);
                             });
@@ -66,12 +67,12 @@
                 },
                 uiShown: function () {
                     // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
+                    document.getElementById("loader").style.display = "none";
+                },
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'directory.html',
+            signInFlow: "popup",
+            signInSuccessUrl: "directory.html",
             signInOptions: [
                 // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -81,12 +82,12 @@
                 //firebase.auth.PhoneAuthProvider.PROVIDER_ID
             ],
             // Terms of service url.
-            tosUrl: '<your-tos-url>',
+            tosUrl: "<your-tos-url>",
             // Privacy policy url.
-            privacyPolicyUrl: '<your-privacy-policy-url>'
+            privacyPolicyUrl: "<your-privacy-policy-url>",
         };
 
-        ui.start('#firebaseui-auth-container', uiConfig);
+        ui.start("#firebaseui-auth-container", uiConfig);
     </script>
 </body>
 

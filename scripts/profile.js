@@ -3,19 +3,17 @@ console.log("profile.js has been loaded.");
 
 // Updates Name on all HTML Pages
 function insertDetails() {
-
-    firebase.auth().onAuthStateChanged(user => {
-
+    firebase.auth().onAuthStateChanged((user) => {
         // Check if user is signed in:
         if (user) {
-            
             //Go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid);
 
             //Get the document for current user.
-            currentUser.get()
+            currentUser
+                .get()
 
-                .then(userDoc => {
+                .then((userDoc) => {
                     // Set User Variables
                     var user_Name = userDoc.data().name;
                     var DOB = userDoc.data().DOB;
@@ -25,9 +23,7 @@ function insertDetails() {
                     // Using JQuery to grab and set element details
                     $(".grid-item-profile-profileName-Replace").text(user_Name);
                     $(".grid-item-profilecontent-DOB-entry").text(DOB);
-
-                })
-
+                });
         } else {
             // No user is signed in.
         }
@@ -38,17 +34,15 @@ insertDetails();
 
 // Sets the User Input information by sending to Firebase and and making an UPDATE call.
 function setDetails() {
-
     // User Details
     let setName = document.getElementById("nameInput").value;
     let setBirthDate = document.getElementById("ProfileBirthdateInput").value;
     let setCity = document.getElementById("cityInput").value;
     let setSchool = document.getElementById("schoolInput").value;
 
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged((user) => {
         // Checks if user exists
         if (user) {
-
             // Grab current User
             var currentUser = db.collection("users").doc(user.uid);
             var userID = user.uid;
@@ -56,10 +50,10 @@ function setDetails() {
             // Grab User Inputed details
             currentUser.get().then((userDoc) => {
                 var userEmail = userDoc.data().email;
-                if (setName == ""){
+                if (setName == "") {
                     setName = userDoc.data().name;
                 }
-                if (setBirthDate == ""){
+                if (setBirthDate == "") {
                     setBirthDate = userDoc.data().DOB;
                 }
 
@@ -69,16 +63,15 @@ function setDetails() {
                     email: userEmail,
                     name: setName,
                     city: setCity,
-                    school: setSchool
+                    school: setSchool,
                 });
                 insertDetails();
 
                 // Disables Input Boxes
-                document.getElementById('personalInfoFields').disabled = true;
+                document.getElementById("personalInfoFields").disabled = true;
             });
-
         } else {
-            console.log("No user signed in")
+            console.log("No user signed in");
         }
     });
 }
