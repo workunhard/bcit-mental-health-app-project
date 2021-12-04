@@ -130,6 +130,7 @@
     <!-- My JavaScript -->
     <script>
         //show user's information on profile page
+        //No input params and return values
         function populateInfo() {
             firebase.auth().onAuthStateChanged((user) => {
                 // Check if user is signed in:
@@ -168,8 +169,9 @@
         //call the function to run it
         populateInfo();
 
+        //Enable the form fields
+        //No input params and return values
         function editUserInfo() {
-            //Enable the form fields
             document.getElementById("personalInfoFields").disabled = false;
         }
     </script>

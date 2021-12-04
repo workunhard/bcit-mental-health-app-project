@@ -2,6 +2,7 @@
 console.log("profile.js has been loaded.");
 
 // Updates Name on all HTML Pages
+//No input params and return values
 function insertDetails() {
     firebase.auth().onAuthStateChanged((user) => {
         // Check if user is signed in:
@@ -33,6 +34,7 @@ function insertDetails() {
 insertDetails();
 
 // Sets the User Input information by sending to Firebase and and making an UPDATE call.
+//No input params and return values
 function setDetails() {
     // User Details
     let setName = document.getElementById("nameInput").value;

@@ -1,4 +1,5 @@
 // display name on top navbar
+//No input params and return values
 function insertName() {
     firebase.auth().onAuthStateChanged((user) => {
         // Check if user is signed in:
